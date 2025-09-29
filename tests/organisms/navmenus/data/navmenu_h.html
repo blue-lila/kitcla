@@ -1,0 +1,24 @@
+<nav class='relative z-10 w-auto' x-data='{
+        navigationMenuOpen: false,
+        navigationMenu: &#39;&#39;,
+        navigationMenuCloseDelay: 200,
+        navigationMenuCloseTimeout: null,
+        navigationMenuLeave() {
+            let that = this;
+            this.navigationMenuCloseTimeout = setTimeout(() =&gt; {
+                that.navigationMenuClose();
+            }, this.navigationMenuCloseDelay);
+        },
+        navigationMenuReposition(navElement) {
+            this.navigationMenuClearCloseTimeout();
+            this.$refs.navigationDropdown.style.left = navElement.offsetLeft + &#39;px&#39;;
+            this.$refs.navigationDropdown.style.marginLeft = (navElement.offsetWidth/2) + &#39;px&#39;;
+        },
+        navigationMenuClearCloseTimeout(){
+            clearTimeout(this.navigationMenuCloseTimeout);
+        },
+        navigationMenuClose(){
+            this.navigationMenuOpen = false;
+            this.navigationMenu = &#39;&#39;;
+        }
+    }'><div class='relative'><ul class='flex items-center justify-center flex-1 p-1 space-x-1 list-none border rounded-md text-neutral-700 group border-neutral-200/80'></ul></div><div @mouseleave='navigationMenuLeave()' @mouseover='navigationMenuClearCloseTimeout()' class='absolute top-0 pt-3 duration-200 ease-out -translate-x-1/2 translate-y-11' x-cloak='' x-ref='navigationDropdown' x-show='navigationMenuOpen' x-transition:enter='transition ease-out duration-100' x-transition:enter-end='opacity-100 scale-100' x-transition:enter-start='opacity-0 scale-90' x-transition:leave='transition ease-in duration-100' x-transition:leave-end='opacity-0 scale-90' x-transition:leave-start='opacity-100 scale-100'><div class='flex justify-center w-auto h-auto overflow-hidden bg-white border rounded-md shadow-sm border-neutral-200/70'></div></div></nav>
