@@ -27,7 +27,9 @@ A Go design system kit for building CRUD applications with type-safe, server-sid
 go get github.com/blue-lila/kitcla
 ```
 
-## Quick Start
+Then mount the `./assets` folder to the `/assets` route in your web server for styles and scripts to work.
+
+## Quick Example
 
 ```go
 package main
