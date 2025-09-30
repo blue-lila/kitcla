@@ -1,29 +1,25 @@
 # KitCLA
 
-A Go-based design system kit specialized for CRUD-like applications, following atomic design principles and built on a custom HTML generation framework called "goc".
+A Go design system kit for building CRUD applications with type-safe, server-side HTML generation. Built on atomic design principles using a custom HTML framework called "goc".
 
-> ⚠️ **Early Access**: This project is in active development and the API may change. Use in production at your own discretion.
+> ⚠️ **Early Access**: Active development - API may change.
 
-## Overview
-
-KitCLA provides a hierarchical component system with atoms, molecules, and organisms for building web user interfaces. The library generates HTML server-side with optional client-side Alpine.js enhancements and Tailwind CSS styling.
-
-> 💡 **Component Book**: All components can be viewed in the interactive Component Book. Run `./bin/run-book.sh` to explore live examples and documentation at `http://localhost:7000`.
+> 💡 **Component Book**: View all components interactively at `http://localhost:7000` — run `./bin/run-book.sh`
 
 ## Features
 
-- **Atomic Design Architecture**: Organized components following atoms → molecules → organisms pattern
-- **Type-Safe HTML Generation**: Custom `goc` framework for safe HTML creation
-- **Alpine.js 3.8.1 Integration**: Client-side reactivity and interactive components
-- **Tailwind CSS 2.2.19 Styling**: Utility-first CSS framework integration
-- **Comprehensive Testing**: Extensive test coverage with HTML output validation
-- **Accessibility Support**: Built-in ARIA support
-- **Internationalization**: Multi-language support system (planned)
+- **Atomic Design**: Three-tier component system (atoms → molecules → organisms)
+- **Type-Safe HTML**: Server-rendered with custom `goc` framework
+- **Alpine.js v3**: Client-side interactivity via mirror component pattern
+- **Tailwind CSS v2**: Utility-first styling
+- **Testing**: Comprehensive HTML output validation
+- **Accessibility**: Built-in ARIA support
+- **i18n**: Multi-language support (planned)
 
 ## Requirements
 
 - Go 1.25+
-- No external dependencies (self-contained)
+- No external dependencies
 
 ## Installation
 
