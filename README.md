@@ -63,7 +63,38 @@ KitCLA follows atomic design principles with three levels of components:
 - **Molecules**: Simple combinations of atoms (alerts, navbars, trees, etc.)
 - **Organisms**: Complex assemblies (tables, forms, cards, modals, etc.)
 
-For a complete list of all available components and their usage, see [docs/components.md](docs/components.md).
+For a complete list of all available components and their usage, see [docs/components.md](docs/components.md) or explore [kit.go](kit.go) directly.
+
+### Alpine.js Variants
+
+Some components have Alpine.js-enhanced variants (suffixed with `Alp`) for client-side interactivity:
+
+```go
+// Standard button with server-side link
+kit.Atoms.Buttons.Button.PrimaryLink("Save", "/save", nil)
+
+// Alpine.js button with client-side click handler
+kit.Atoms.Buttons.ButtonAlp.PrimaryLink("Save", "handleSave()", nil)
+```
+
+### Mod Pattern
+
+Most component methods accept a `Mod` struct as their last argument for optional customization:
+
+```go
+// Using default behavior (pass nil for mod)
+button := kit.Atoms.Buttons.Button.PrimaryLink("Save", "/save", nil)
+
+// Customizing with Mod
+mod := &buttons.ButtonMod{
+    Icon:     "floppy-disk",
+    Disabled: false,
+    Title:    "Save your changes",
+}
+button := kit.Atoms.Buttons.Button.PrimaryLink("Save", "/save", mod)
+```
+
+The Mod pattern allows you to override defaults while keeping convenience methods simple.
 
 ## HTML Generation with goc
 
@@ -127,98 +158,107 @@ Alpine.js specific:
 
 Utility methods:
 - `W(css, components...)` - Wrapper div
-- `ExpHtml(html)` - Expand raw HTML (unsafe)
+- `ExpHtml(html)` - Experimental raw HTML (unsafe)
 - `OrNil(element, isNil)` - Conditionally include element
 
-## Development Scripts
+## Composite Example
 
-KitCLA includes several helper scripts in the `bin/` directory:
-
-```bash
-# Run tests
-./bin/run-tests.sh                 # Run all tests
-./bin/run-tests.sh -v              # Verbose output
-./bin/run-tests.sh -c              # With coverage
-
-# Run code quality checks
-./bin/run-code-checks.sh           # Run linters and security checks
-
-# Pre-push validation
-./bin/pre-push-check.sh            # Run tests + code checks (used by git hook)
-
-# Component book server
-./bin/run-book.sh                  # Start component documentation server
-./bin/run-book.sh 8080             # Start on custom port
-```
-
-## Testing
-
-KitCLA includes a comprehensive testing system with 80+ test files covering all component levels. The testing framework validates HTML output, supports regression testing, and automatically generates documentation.
-
-### Running Tests
-
-```bash
-# Using the test runner script (recommended)
-./bin/run-tests.sh                 # Run all tests
-./bin/run-tests.sh -v              # Run with verbose output
-./bin/run-tests.sh -c              # Run with coverage report
-./bin/run-tests.sh -h              # Show help and available options
-
-# Test specific component categories
-./bin/run-tests.sh ./tests/atoms/...       # Basic components
-./bin/run-tests.sh ./tests/molecules/...   # Simple combinations
-./bin/run-tests.sh ./tests/organisms/...   # Complex assemblies
-./bin/run-tests.sh ./tests/widgets/...     # Complete application examples
-
-# Using go test directly
-go test ./tests/...                        # Run all tests
-go test ./tests/atoms/buttons/...          # Test specific components
-go test -v ./tests/atoms/inputs/text_input_test.go  # Verbose single test
-```
-
-### Test Structure
-
-Tests are organized following the atomic design structure:
-
-```
-tests/
-├── atoms/           # Button, input, cell tests
-├── molecules/       # Alert, navbar, tree tests
-├── organisms/       # Form, table, card tests
-└── widgets/         # Complete application examples
-```
-
-Each test directory includes:
-- **Test files**: `*_test.go` with component validation
-- **Data files**: `data/*.html` with expected HTML output
-- **Themes**: Gardening application examples for realistic testing
-
-### Test Utilities
-
-The `sup` package provides testing utilities:
+Here's a practical example showing how to combine atoms, organisms, and component glue to build a plant inventory table:
 
 ```go
-import "github.com/blue-lila/kitcla/sup"
+package main
 
-// Update expected HTML output (for component changes)
-sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_primary.html")
+import (
+    "fmt"
+    "github.com/blue-lila/kitcla"
+    "github.com/blue-lila/kitcla/components/organisms/tables"
+    "github.com/blue-lila/kitcla/dat"
+    "github.com/blue-lila/kitcla/goc"
+)
 
-// Assert HTML matches expected output (regression testing)
-sup.AssertEqualHtmlFromDataFile(t, html, "./data/button_primary.html")
+// Plant implements dat.Entity interface
+type Plant struct {
+    Id       string
+    Name     string
+    Species  string
+    Location string
+    Status   string
+}
 
-// Generate documentation pages
-sup.AddPage("PrimaryButton", html)
-sup.AddIndexPage("buttons", html)  // Component overview
+func (p Plant) GetId() string {
+    return p.Id
+}
+
+func main() {
+    kit := kitcla.New()
+
+    // Sample data
+    plants := []dat.Entity{
+        Plant{Id: "1", Name: "Monstera Deliciosa", Species: "Swiss Cheese Plant", Location: "Living Room", Status: "Healthy"},
+        Plant{Id: "2", Name: "Garden Rose", Species: "Rosa gallica", Location: "Balcony", Status: "Needs Water"},
+        Plant{Id: "3", Name: "Snake Plant", Species: "Sansevieria", Location: "Bedroom", Status: "Healthy"},
+    }
+
+    // Define table columns
+    columns := kit.Organisms.Tables.Table.Columns([]*tables.Column{
+        {Key: "name", Label: "Plant Name", Kind: tables.ColumnKindData},
+        {Key: "species", Label: "Species", Kind: tables.ColumnKindData},
+        {Key: "location", Label: "Location", Kind: tables.ColumnKindData},
+        {Key: "status", Label: "Status", Kind: tables.ColumnKindData},
+    })
+
+    // Build table with custom cell renderer
+    tableMod := &tables.TableMod{
+        Title:      "🌱 Plant Inventory",
+        Columns:    columns,
+        Items:      plants,
+        BaseUrl:    "/plants",
+        RowCell: func(item dat.Entity, column *tables.Column) goc.HTML {
+            plant := item.(Plant)
+            switch column.Key {
+            case "name":
+                return kit.Component.Dcs("flex items-center space-x-2",
+                    kit.Component.Dcv("text-xl", "🌿"),
+                    kit.Atoms.Links.Link.TextLink(plant.Name, "/plants/"+plant.Id),
+                )
+            case "species":
+                return kit.Component.Dcv("text-gray-600 text-sm", plant.Species)
+            case "location":
+                return kit.Atoms.Cells.TextCell.H(plant.Location)
+            case "status":
+                statusColor := "bg-green-100 text-green-800"
+                if plant.Status == "Needs Water" {
+                    statusColor = "bg-yellow-100 text-yellow-800"
+                }
+                return kit.Component.Dcv("inline-flex px-2 py-1 text-xs font-semibold rounded-full "+statusColor, plant.Status)
+            default:
+                return kit.Component.Dcv("", "")
+            }
+        },
+    }
+
+    // Wrap table in a page layout using component glue
+    page := kit.Component.Dcs("min-h-screen bg-gray-50",
+        kit.Component.Dcs("max-w-7xl mx-auto px-6 py-8",
+            kit.Component.Ds(
+                kit.Atoms.Headers.Header.H1("My Garden", ""),
+                kit.Component.Dcv("text-gray-600 mb-8", "Track and manage your plant collection"),
+                kit.Organisms.Tables.Table.H(tableMod),
+            ),
+        ),
+    )
+
+    // Render
+    html := goc.RenderRoot(page)
+    fmt.Println(html)
+}
 ```
 
-### Component Book Integration
-
-Tests automatically generate documentation for the component book:
-- **HTML examples**: Rendered component demonstrations
-- **JSON metadata**: Component organization and navigation
-- **Showcase pages**: Complete component variations and states
-
-All test data uses consistent gardening themes (plant management, watering schedules, garden tools) making examples realistic and relatable.
+This example demonstrates:
+- **Atoms**: Button, Links, Cells for basic UI elements
+- **Organisms**: Table for complex data display with custom cell rendering
+- **Component Glue**: Using `kit.Component` methods (`Dcs`, `Ds`, `Dcv`) to structure and style the layout
+- **Data Integration**: Implementing `dat.Entity` interface and passing structured data to components
 
 ## Documentation
 
