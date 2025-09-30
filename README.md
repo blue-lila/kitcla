@@ -37,7 +37,6 @@ go get github.com/blue-lila/kitcla
 package main
 
 import (
-    "fmt"
     "github.com/blue-lila/kitcla"
     "github.com/blue-lila/kitcla/goc"
 )
@@ -47,11 +46,11 @@ func main() {
     kit := kitcla.New()
 
     // Create a button component
-    button := kit.Atoms.Buttons.Button.H("Click Me", "primary", "")
+    button := kit.Atoms.Buttons.Button.PrimaryLink("Click Me", "/my-page", nil)
 
     // Render HTML
     html := goc.RenderRoot(button)
-    fmt.Println(html)
+    println(html)
 }
 ```
 
@@ -141,15 +140,7 @@ The base Component provides many convenience methods built on `H()`:
 - `Cas(el, attributes, components...)` - Element with attributes and subcomponents
 - `Ccs(el, css, components...)` - Element with CSS and subcomponents
 
-Div-specific shortcuts:
-- `Dcs(css, components...)` - Div with CSS and subcomponents
-- `Ds(components...)` - Div with subcomponents
-- `Da(attributes)` - Div with attributes
-- `Dc(css)` - Div with CSS
-- `Dv(values...)` - Div with values
-- `Dcv(css, value)` - Div with CSS and value
-- `Dav(attributes, value)` - Div with attributes and value
-- `Das(attributes, components...)` - Div with attributes and subcomponents
+Div-specific shortcuts exist too: `Dcs`, `Ds`, `Da`, ...
 
 Alpine.js specific:
 - `Ti(condition, component)` - Template with x-if
@@ -169,7 +160,6 @@ Here's a practical example showing how to combine atoms, organisms, and componen
 package main
 
 import (
-    "fmt"
     "github.com/blue-lila/kitcla"
     "github.com/blue-lila/kitcla/components/organisms/tables"
     "github.com/blue-lila/kitcla/dat"
@@ -224,7 +214,7 @@ func main() {
             case "species":
                 return kit.Component.Dcv("text-gray-600 text-sm", plant.Species)
             case "location":
-                return kit.Atoms.Cells.TextCell.H(plant.Location)
+                return kit.Atoms.Cells.TextCell.TextCell(plant.Location)
             case "status":
                 statusColor := "bg-green-100 text-green-800"
                 if plant.Status == "Needs Water" {
@@ -232,7 +222,7 @@ func main() {
                 }
                 return kit.Component.Dcv("inline-flex px-2 py-1 text-xs font-semibold rounded-full "+statusColor, plant.Status)
             default:
-                return kit.Component.Dcv("", "")
+                return goc.HTML{}
             }
         },
     }
@@ -241,7 +231,7 @@ func main() {
     page := kit.Component.Dcs("min-h-screen bg-gray-50",
         kit.Component.Dcs("max-w-7xl mx-auto px-6 py-8",
             kit.Component.Ds(
-                kit.Atoms.Headers.Header.H1("My Garden", ""),
+                kit.Atoms.Headers.Header.H1("My Garden"),
                 kit.Component.Dcv("text-gray-600 mb-8", "Track and manage your plant collection"),
                 kit.Organisms.Tables.Table.H(tableMod),
             ),
@@ -250,7 +240,7 @@ func main() {
 
     // Render
     html := goc.RenderRoot(page)
-    fmt.Println(html)
+    println(html)
 }
 ```
 
