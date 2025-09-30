@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-KitCLA is a Go-based design system kit specialized for CRUD-like applications, following atomic design principles. It provides a hierarchical component system with atoms, molecules, and organisms, built on top of a custom HTML generation framework called "goc". The library is hosted at `github.com/blue-lila/kitcla` and requires Go 1.19+.
+KitCLA is a Go-based design system kit specialized for CRUD-like applications, following atomic design principles. It provides a hierarchical component system with atoms, molecules, and organisms, built on top of a custom HTML generation framework called "goc". The library is hosted at `github.com/blue-lila/kitcla` and requires Go 1.25+.
 
 **Current Status**: Early access - the project is in active development and the API may change.
 
@@ -25,6 +25,18 @@ go test ./tests/atoms/...                         # Run tests for specific compo
 go test -v ./tests/atoms/buttons/button_test.go   # Run specific test file with verbose output
 go test ./tests/molecules/...                     # Run molecule component tests
 go test ./tests/organisms/...                     # Run organism component tests
+```
+
+### Code Quality
+```bash
+./bin/run-code-checks.sh         # Run linters and security checks
+./bin/pre-push-check.sh          # Run tests + code checks (git pre-push hook)
+```
+
+### Component Book
+```bash
+./bin/run-book.sh                # Start component documentation server on port 7000
+./bin/run-book.sh 8080           # Start on custom port
 ```
 
 ### Building
@@ -88,7 +100,7 @@ go run tools/generator/main.go   # Run the component generator tool
 ### Frontend Integration
 
 - **Alpine.js 3.8.1**: Client-side reactivity and component behavior
-- **Tailwind CSS**: Utility-first CSS framework for styling
+- **Tailwind CSS 2.2.19**: Utility-first CSS framework for styling
 - **Custom JavaScript**: Common utilities and debug tools
 - **Component Files**: Modular JavaScript components
 
@@ -235,8 +247,13 @@ This thematic consistency makes tests more readable and provides realistic usage
   - `components/`: Frontend component files
 - `docs/`: Component documentation with HTML/JSON examples
 - `tools/generator/`: Code generation utilities
+- `tools/book/`: Component book server for documentation
+- `bin/`: Helper scripts (run-tests.sh, run-code-checks.sh, pre-push-check.sh, run-book.sh)
 - `sup/`: Support utilities for testing and development
 - `aria/`: ARIA accessibility support
 - `i18n/`: Internationalization files
-- Always use ./bin/run-book when trying to run the book
+
+## Important Development Rules
+- Always use ./bin/run-book.sh when trying to run the component book
 - Always run tests before saying a task is completed
+- Use ./bin/pre-push-check.sh before pushing code

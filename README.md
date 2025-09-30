@@ -8,19 +8,21 @@ A Go-based design system kit specialized for CRUD-like applications, following a
 
 KitCLA provides a hierarchical component system with atoms, molecules, and organisms for building web user interfaces. The library generates HTML server-side with optional client-side Alpine.js enhancements and Tailwind CSS styling.
 
+> 💡 **Component Book**: All components can be viewed in the interactive Component Book. Run `./bin/run-book.sh` to explore live examples and documentation at `http://localhost:7000`.
+
 ## Features
 
 - **Atomic Design Architecture**: Organized components following atoms → molecules → organisms pattern
 - **Type-Safe HTML Generation**: Custom `goc` framework for safe HTML creation
-- **Alpine.js Integration**: Client-side reactivity and interactive components
-- **Tailwind CSS Styling**: Utility-first CSS framework integration
+- **Alpine.js 3.8.1 Integration**: Client-side reactivity and interactive components
+- **Tailwind CSS 2.2.19 Styling**: Utility-first CSS framework integration
 - **Comprehensive Testing**: Extensive test coverage with HTML output validation
 - **Accessibility Support**: Built-in ARIA support
 - **Internationalization**: Multi-language support system (planned)
 
 ## Requirements
 
-- Go 1.19+
+- Go 1.25+
 - No external dependencies (self-contained)
 
 ## Installation
@@ -127,6 +129,27 @@ Utility methods:
 - `W(css, components...)` - Wrapper div
 - `ExpHtml(html)` - Expand raw HTML (unsafe)
 - `OrNil(element, isNil)` - Conditionally include element
+
+## Development Scripts
+
+KitCLA includes several helper scripts in the `bin/` directory:
+
+```bash
+# Run tests
+./bin/run-tests.sh                 # Run all tests
+./bin/run-tests.sh -v              # Verbose output
+./bin/run-tests.sh -c              # With coverage
+
+# Run code quality checks
+./bin/run-code-checks.sh           # Run linters and security checks
+
+# Pre-push validation
+./bin/pre-push-check.sh            # Run tests + code checks (used by git hook)
+
+# Component book server
+./bin/run-book.sh                  # Start component documentation server
+./bin/run-book.sh 8080             # Start on custom port
+```
 
 ## Testing
 

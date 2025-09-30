@@ -39,6 +39,7 @@ func TestTableSubTable(t *testing.T) {
 	component := kit.Organisms.Tables.Table
 
 	mod := component.Mod()
+	mod.TableId = "test-table-id" // Fixed ID for deterministic output
 
 	h := component.SubTable(mod)
 	html := goc.RenderRoot(h)
@@ -62,6 +63,7 @@ func TestTableTable(t *testing.T) {
 		//ActiveFilters: bridge.ActiveFilters(fetcherPagination.Modulation),
 	}
 	mod := &tables.TableMod{
+		TableId:    "test-table-id", // Fixed ID for deterministic output
 		Columns:    columns,
 		Items:      items,
 		Pagination: pagination,

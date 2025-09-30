@@ -5,24 +5,29 @@ Thank you for your interest in contributing to KitCLA! This document provides gu
 ## Development Setup
 
 1. Clone the repository
-2. Ensure you have Go 1.19+ installed
-3. Run tests to verify your setup: `go test ./...`
+2. Ensure you have Go 1.25+ installed
+3. Run tests to verify your setup: `./bin/run-tests.sh`
+4. Run code quality checks: `./bin/run-code-checks.sh`
 
 ## Testing
 
 ### Running Tests
 
 ```bash
-# Run all tests
-go test ./...
+# Using the test runner script (recommended)
+./bin/run-tests.sh                 # Run all tests
+./bin/run-tests.sh -v              # Verbose output
+./bin/run-tests.sh -c              # With coverage
+./bin/run-tests.sh -h              # Show help
 
 # Run specific component tests
-go test ./tests/atoms/buttons/...
-go test ./tests/molecules/...
-go test ./tests/organisms/...
+./bin/run-tests.sh ./tests/atoms/buttons/...
+./bin/run-tests.sh ./tests/molecules/...
+./bin/run-tests.sh ./tests/organisms/...
 
-# Verbose output
-go test -v ./tests/atoms/buttons/button_test.go
+# Using go test directly
+go test ./...                      # Run all tests
+go test -v ./tests/atoms/buttons/button_test.go  # Verbose single test
 ```
 
 ### Test Structure
@@ -130,12 +135,18 @@ When adding new components or features:
 
 1. Create a feature branch from main
 2. Make your changes following these guidelines
-3. Ensure all tests pass: `go test ./...`
-4. Submit a pull request with:
+3. Ensure all tests pass: `./bin/run-tests.sh`
+4. Run code quality checks: `./bin/run-code-checks.sh`
+5. Run pre-push checks: `./bin/pre-push-check.sh`
+6. Submit a pull request with:
    - Clear description of changes
    - Reference to any related issues
    - Screenshots for UI changes
    - Test coverage for new features
+
+### Git Pre-Push Hook
+
+A git pre-push hook is automatically configured to run tests and code checks before pushing. This ensures code quality and prevents broken code from being pushed to the repository.
 
 ## Architecture Considerations
 
