@@ -11,7 +11,7 @@ func TestTextCellTextCell(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Atoms.Cells.TextCell
 
-	h := component.TextCell("")
+	h := component.TextCell("Cherry Tomatoes")
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/text_cell_text_cell_1.html")

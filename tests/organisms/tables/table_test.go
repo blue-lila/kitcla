@@ -14,7 +14,7 @@ func TestTableCheckboxAction(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Organisms.Tables.Table
 
-	h := component.CheckboxAction("", "", nil)
+	h := component.CheckboxAction("plant_id", "Water Selected Plants", nil)
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/table_checkbox_action_1.html")

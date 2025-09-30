@@ -58,11 +58,7 @@ func (this *Popover) iconButton(icon string) goc.HTML {
 }
 
 func (this *Popover) ghostlyIconButton(icon string) goc.HTML {
-	return this.ButtonAlp.GhostlyTertiaryIconLink(icon, "open = !open", nil)
-}
-
-func (this *Popover) tertiaryIconButton(icon string) goc.HTML {
-	return this.ButtonAlp.TertiaryIconLink(icon, "open = !open", nil)
+	return this.ButtonAlp.QuaternaryIconLink(icon, "open = !open", nil)
 }
 
 func (this *Popover) outerWrapper(mod *PopoverMod) goc.HTML {

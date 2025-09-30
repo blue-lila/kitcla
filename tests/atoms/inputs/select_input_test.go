@@ -12,7 +12,7 @@ func TestSelectInputSelectInput(t *testing.T) {
 	component := kit.Atoms.Inputs.SelectInput
 
 	options := component.Mod()
-	h := component.SelectInput("", "", options)
+	h := component.SelectInput("watering_frequency", "daily", options)
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/select_input_select_input_1.html")

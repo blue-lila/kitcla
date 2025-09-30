@@ -11,7 +11,7 @@ func TestRichTextCellRichTextCell(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Atoms.Cells.RichTextCell
 
-	h := component.RichTextCell("")
+	h := component.RichTextCell("<strong>Morning Glory</strong> - <em>Full sun, climbing vine</em>")
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/rich_text_cell_rich_text_cell_1.html")

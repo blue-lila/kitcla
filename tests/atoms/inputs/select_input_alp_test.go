@@ -12,7 +12,7 @@ func TestSelectInputAlpSelectInputAlp(t *testing.T) {
 	component := kit.Atoms.Inputs.SelectInputAlp
 
 	options := component.Mod()
-	h := component.SelectInputAlp("", options)
+	h := component.SelectInputAlp("garden_section", options)
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/select_input_alp_select_input_alp_1.html")

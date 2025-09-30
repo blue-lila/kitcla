@@ -1,0 +1,105 @@
+<div class='space-y-8 p-6'>
+  <h1 class='text-3xl font-bold text-gray-900 mb-8'>Message Components Overview</h1>
+  <div class='prose max-w-none mb-8'>
+    <p class='text-lg text-gray-600'>Message components display user communications, notifications, confirmations, and status updates. They provide structured ways to present information to users in various contexts and layouts.</p>
+  </div>
+
+  <div class='space-y-6'>
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>System Messages</h2>
+      <div class='space-y-3'>
+        <div class='p-4 bg-gray-50 border border-gray-200 rounded-lg'>
+          <div class='flex items-start'>
+            <div class='w-8 h-8 bg-gray-300 rounded-full mr-3 flex-shrink-0'></div>
+            <div>
+              <h3 class='font-semibold text-gray-900'>System Notification</h3>
+              <p class='text-gray-600 text-sm mt-1'>Your account settings have been automatically updated due to security requirements.</p>
+              <div class='text-xs text-gray-500 mt-2'>2 minutes ago</div>
+            </div>
+          </div>
+        </div>
+        <div class='p-4 bg-blue-50 border border-blue-200 rounded-lg'>
+          <div class='flex items-start'>
+            <div class='w-8 h-8 bg-blue-500 rounded-full mr-3 flex-shrink-0 flex items-center justify-center'>
+              <svg class='w-4 h-4 text-white' fill='currentColor' viewBox='0 0 20 20'>
+                <path fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z' clip-rule='evenodd' />
+              </svg>
+            </div>
+            <div>
+              <h3 class='font-semibold text-blue-900'>Information Update</h3>
+              <p class='text-blue-700 text-sm mt-1'>New features are now available in your dashboard. Check them out!</p>
+              <div class='text-xs text-blue-600 mt-2'>1 hour ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>User Messages</h2>
+      <div class='space-y-3'>
+        <div class='p-4 bg-white border border-gray-200 rounded-lg shadow-sm'>
+          <div class='flex items-start'>
+            <div class='w-8 h-8 bg-purple-500 rounded-full mr-3 flex-shrink-0 flex items-center justify-center text-white text-sm font-semibold'>
+              JD
+            </div>
+            <div class='flex-1'>
+              <div class='flex items-center justify-between mb-1'>
+                <h3 class='font-semibold text-gray-900'>John Doe</h3>
+                <div class='text-xs text-gray-500'>10:30 AM</div>
+              </div>
+              <p class='text-gray-700 text-sm'>Hey there! I wanted to follow up on our conversation about the project timeline. When would be a good time to discuss the next steps?</p>
+            </div>
+          </div>
+        </div>
+        <div class='p-4 bg-white border border-gray-200 rounded-lg shadow-sm'>
+          <div class='flex items-start'>
+            <div class='w-8 h-8 bg-green-500 rounded-full mr-3 flex-shrink-0 flex items-center justify-center text-white text-sm font-semibold'>
+              AS
+            </div>
+            <div class='flex-1'>
+              <div class='flex items-center justify-between mb-1'>
+                <h3 class='font-semibold text-gray-900'>Alice Smith</h3>
+                <div class='text-xs text-gray-500'>Yesterday</div>
+              </div>
+              <p class='text-gray-700 text-sm'>The presentation looks great! I've added some feedback in the comments. Let me know if you need any clarification.</p>
+              <div class='flex items-center mt-2'>
+                <span class='text-xs text-gray-500'>📎 presentation_v2.pdf</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Status Messages</h2>
+      <div class='space-y-3'>
+        <div class='p-3 bg-green-50 border-l-4 border-green-400 text-green-700'>
+          <div class='flex items-center'>
+            <svg class='w-4 h-4 mr-2' fill='currentColor' viewBox='0 0 20 20'>
+              <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' />
+            </svg>
+            <span class='font-medium'>Connected</span> - All systems operational
+          </div>
+        </div>
+        <div class='p-3 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-700'>
+          <div class='flex items-center'>
+            <svg class='w-4 h-4 mr-2' fill='currentColor' viewBox='0 0 20 20'>
+              <path fill-rule='evenodd' d='M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z' clip-rule='evenodd' />
+            </svg>
+            <span class='font-medium'>Syncing</span> - Updating data in progress...
+          </div>
+        </div>
+        <div class='p-3 bg-red-50 border-l-4 border-red-400 text-red-700'>
+          <div class='flex items-center'>
+            <svg class='w-4 h-4 mr-2' fill='currentColor' viewBox='0 0 20 20'>
+              <path fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z' clip-rule='evenodd' />
+            </svg>
+            <span class='font-medium'>Offline</span> - Connection lost, retrying...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

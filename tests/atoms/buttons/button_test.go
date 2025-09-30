@@ -47,6 +47,54 @@ func TestButtonPrimarySubmit(t *testing.T) {
 	sup.AddPage("PrimarySubmit", html)
 }
 
+func TestButtonPrimaryPost(t *testing.T) {
+	kit := kitcla.New()
+	component := kit.Atoms.Buttons.Button
+
+	h := component.PrimaryPost("Plant it", "#", nil)
+	html := goc.RenderRoot(h)
+
+	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_primary_post_1.html")
+	sup.AssertEqualHtmlFromDataFile(t, html, "./data/button_primary_post_1.html")
+	sup.AddPage("PrimaryPost", html)
+}
+
+func TestButtonPrimaryIconLink(t *testing.T) {
+	kit := kitcla.New()
+	component := kit.Atoms.Buttons.Button
+
+	h := component.PrimaryIconLink("tree", "#", nil)
+	html := goc.RenderRoot(h)
+
+	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_primary_icon_link_1.html")
+	sup.AssertEqualHtmlFromDataFile(t, html, "./data/button_primary_icon_link_1.html")
+	sup.AddPage("PrimaryIconLink", html)
+}
+
+func TestButtonPrimaryIconSubmit(t *testing.T) {
+	kit := kitcla.New()
+	component := kit.Atoms.Buttons.Button
+
+	h := component.PrimaryIconSubmit("tree", nil)
+	html := goc.RenderRoot(h)
+
+	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_primary_icon_submit_1.html")
+	sup.AssertEqualHtmlFromDataFile(t, html, "./data/button_primary_icon_submit_1.html")
+	sup.AddPage("PrimaryIconSubmit", html)
+}
+
+func TestButtonPrimaryIconPost(t *testing.T) {
+	kit := kitcla.New()
+	component := kit.Atoms.Buttons.Button
+
+	h := component.PrimaryIconPost("tree", "#", nil)
+	html := goc.RenderRoot(h)
+
+	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_primary_icon_post_1.html")
+	sup.AssertEqualHtmlFromDataFile(t, html, "./data/button_primary_icon_post_1.html")
+	sup.AddPage("PrimaryIconPost", html)
+}
+
 func TestButtonSecondaryIconLink(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Atoms.Buttons.Button
@@ -59,6 +107,18 @@ func TestButtonSecondaryIconLink(t *testing.T) {
 	sup.AddPage("SecondaryIconLink", html)
 }
 
+func TestButtonSecondarySubmit(t *testing.T) {
+	kit := kitcla.New()
+	component := kit.Atoms.Buttons.Button
+
+	h := component.SecondarySubmit("Plant it", nil)
+	html := goc.RenderRoot(h)
+
+	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_secondary_submit_1.html")
+	sup.AssertEqualHtmlFromDataFile(t, html, "./data/button_secondary_submit_1.html")
+	sup.AddPage("SecondarySubmit", html)
+}
+
 func TestButtonSecondaryIconSubmit(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Atoms.Buttons.Button
@@ -69,6 +129,18 @@ func TestButtonSecondaryIconSubmit(t *testing.T) {
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_secondary_icon_submit_1.html")
 	sup.AssertEqualHtmlFromDataFile(t, html, "./data/button_secondary_icon_submit_1.html")
 	sup.AddPage("SecondaryIconSubmit", html)
+}
+
+func TestButtonSecondaryIconPost(t *testing.T) {
+	kit := kitcla.New()
+	component := kit.Atoms.Buttons.Button
+
+	h := component.SecondaryIconPost("tree", "#", nil)
+	html := goc.RenderRoot(h)
+
+	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_secondary_icon_post_1.html")
+	sup.AssertEqualHtmlFromDataFile(t, html, "./data/button_secondary_icon_post_1.html")
+	sup.AddPage("SecondaryIconPost", html)
 }
 
 func TestButtonSecondaryLink(t *testing.T) {

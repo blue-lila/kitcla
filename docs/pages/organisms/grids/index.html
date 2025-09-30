@@ -1,0 +1,141 @@
+<div class='space-y-8 p-6'>
+  <h1 class='text-3xl font-bold text-gray-900 mb-8'>Grid Components Overview</h1>
+  <div class='prose max-w-none mb-8'>
+    <p class='text-lg text-gray-600'>Grid components organize content in responsive multi-column layouts with icon-based cards and key-value displays. They provide visual browsing experiences with consistent spacing and responsive breakpoints for various screen sizes.</p>
+  </div>
+
+  <div class='space-y-6'>
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Icon Card Grids</h2>
+      <div class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+        <div class='bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer'>
+          <div class='w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4'>
+            <svg class='w-6 h-6 text-green-600' fill='currentColor' viewBox='0 0 20 20'>
+              <path fill-rule='evenodd' d='M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z' clip-rule='evenodd' />
+            </svg>
+          </div>
+          <h3 class='text-lg font-semibold text-gray-900 mb-2'>Seedlings</h3>
+          <p class='text-sm text-gray-600 mb-3'>Start your garden with healthy young plants ready for transplanting</p>
+          <div class='flex items-center text-sm text-gray-500'>
+            <span>24 varieties available</span>
+          </div>
+        </div>
+
+        <div class='bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer'>
+          <div class='w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4'>
+            <svg class='w-6 h-6 text-blue-600' fill='currentColor' viewBox='0 0 20 20'>
+              <path d='M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z' />
+            </svg>
+          </div>
+          <h3 class='text-lg font-semibold text-gray-900 mb-2'>Watering Schedule</h3>
+          <p class='text-sm text-gray-600 mb-3'>Automated irrigation system with smart scheduling based on weather</p>
+          <div class='flex items-center text-sm text-gray-500'>
+            <span>3 active schedules</span>
+          </div>
+        </div>
+
+        <div class='bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer'>
+          <div class='w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4'>
+            <svg class='w-6 h-6 text-orange-600' fill='currentColor' viewBox='0 0 20 20'>
+              <path d='M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z' />
+            </svg>
+          </div>
+          <h3 class='text-lg font-semibold text-gray-900 mb-2'>Harvest Tracker</h3>
+          <p class='text-sm text-gray-600 mb-3'>Record and analyze your garden yields throughout the season</p>
+          <div class='flex items-center text-sm text-gray-500'>
+            <span>47 harvests logged</span>
+          </div>
+        </div>
+
+        <div class='bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer'>
+          <div class='w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4'>
+            <svg class='w-6 h-6 text-purple-600' fill='currentColor' viewBox='0 0 20 20'>
+              <path fill-rule='evenodd' d='M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z' clip-rule='evenodd' />
+            </svg>
+          </div>
+          <h3 class='text-lg font-semibold text-gray-900 mb-2'>Care Calendar</h3>
+          <p class='text-sm text-gray-600 mb-3'>Never miss important garden maintenance tasks and seasonal activities</p>
+          <div class='flex items-center text-sm text-gray-500'>
+            <span>5 tasks this week</span>
+          </div>
+        </div>
+
+        <div class='bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer'>
+          <div class='w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4'>
+            <svg class='w-6 h-6 text-red-600' fill='currentColor' viewBox='0 0 20 20'>
+              <path fill-rule='evenodd' d='M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z' clip-rule='evenodd' />
+            </svg>
+          </div>
+          <h3 class='text-lg font-semibold text-gray-900 mb-2'>Pest Monitor</h3>
+          <p class='text-sm text-gray-600 mb-3'>Track and manage common garden pests with identification guides</p>
+          <div class='flex items-center text-sm text-gray-500'>
+            <span>2 alerts active</span>
+          </div>
+        </div>
+
+        <div class='bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer'>
+          <div class='w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4'>
+            <svg class='w-6 h-6 text-yellow-600' fill='currentColor' viewBox='0 0 20 20'>
+              <path d='M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z' />
+              <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.51-1.31c-.562-.649-1.413-1.076-2.353-1.253V5z' clip-rule='evenodd' />
+            </svg>
+          </div>
+          <h3 class='text-lg font-semibold text-gray-900 mb-2'>Budget Planner</h3>
+          <p class='text-sm text-gray-600 mb-3'>Plan and track garden expenses for seeds, supplies, and equipment</p>
+          <div class='flex items-center text-sm text-gray-500'>
+            <span>$450 spent this season</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Key-Value Grids</h2>
+      <div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
+        <div class='bg-white border border-gray-200 rounded-lg p-6'>
+          <h3 class='text-lg font-semibold text-gray-900 mb-4'>Garden Statistics</h3>
+          <div class='grid grid-cols-2 gap-4'>
+            <div>
+              <div class='text-sm text-gray-500 mb-1'>Total Beds</div>
+              <div class='text-2xl font-bold text-gray-900'>12</div>
+            </div>
+            <div>
+              <div class='text-sm text-gray-500 mb-1'>Active Plants</div>
+              <div class='text-2xl font-bold text-green-600'>47</div>
+            </div>
+            <div>
+              <div class='text-sm text-gray-500 mb-1'>This Week</div>
+              <div class='text-2xl font-bold text-blue-600'>8 lbs</div>
+            </div>
+            <div>
+              <div class='text-sm text-gray-500 mb-1'>Season Total</div>
+              <div class='text-2xl font-bold text-purple-600'>156 lbs</div>
+            </div>
+          </div>
+        </div>
+
+        <div class='bg-white border border-gray-200 rounded-lg p-6'>
+          <h3 class='text-lg font-semibold text-gray-900 mb-4'>Current Conditions</h3>
+          <div class='space-y-3'>
+            <div class='flex justify-between items-center'>
+              <span class='text-sm text-gray-600'>Soil Temperature</span>
+              <span class='text-sm font-medium text-gray-900'>68°F</span>
+            </div>
+            <div class='flex justify-between items-center'>
+              <span class='text-sm text-gray-600'>Moisture Level</span>
+              <span class='text-sm font-medium text-gray-900'>Optimal</span>
+            </div>
+            <div class='flex justify-between items-center'>
+              <span class='text-sm text-gray-600'>Sunlight Hours</span>
+              <span class='text-sm font-medium text-gray-900'>8.5 hrs</span>
+            </div>
+            <div class='flex justify-between items-center'>
+              <span class='text-sm text-gray-600'>pH Level</span>
+              <span class='text-sm font-medium text-gray-900'>6.8</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

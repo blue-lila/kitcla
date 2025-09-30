@@ -64,9 +64,9 @@ func (this *ButtonAlp) TertiaryIconLink(icon string, onClick string, mod *Button
 	})
 }
 
-func (this *ButtonAlp) GhostlyTertiaryIconLink(icon string, onClick string, mod *ButtonAlpMod) goc.HTML {
+func (this *ButtonAlp) QuaternaryIconLink(icon string, onClick string, mod *ButtonAlpMod) goc.HTML {
 	return this.H(&ButtonAlpMod{
-		Kind:      ButtonModKindTertiary,
+		Kind:      ButtonModKindQuaternary,
 		Size:      ButtonModSizeLg,
 		OnClick:   onClick,
 		Icon:      icon,

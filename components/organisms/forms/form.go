@@ -160,10 +160,6 @@ func (this *Form) invalidationFor(mod *FormMod, forField *FormField) []*dat.Inva
 	return set
 }
 
-func (this *Form) formError(invalidation *dat.Invalidation) goc.HTML {
-	return this.Component.Cv("li", invalidation.Message)
-}
-
 func (this *Form) formErrors(mod *FormMod) goc.HTML {
 	text := "There are errors in the form"
 	return this.Component.Cav("ul", goc.Attr{"class": "px-2 py-2 text-red-700 bg-red-100 border-red-500", "role": aria.AriaRoleAlert, aria.AriaLive: aria.AriaLiveAssertive}, text)

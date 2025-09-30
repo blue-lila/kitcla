@@ -558,10 +558,6 @@ func (this *Table) rightButtons(mod *TableMod) goc.HTML {
 	return this.Component.Dcs("flex flex-row space-x-2", subs...)
 }
 
-func (this *Table) hasCheckboxActions(mod *TableMod) bool {
-	return len(mod.CheckboxActions) > 1
-}
-
 func (this *Table) leftButtons(mod *TableMod) goc.HTML {
 	var set []goc.HTML
 

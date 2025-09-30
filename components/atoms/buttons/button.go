@@ -95,12 +95,34 @@ func (this *Button) SecondaryIconLink(icon string, link string, mod *ButtonMod) 
 	return this.H(mod)
 }
 
+func (this *Button) SecondarySubmit(label string, mod *ButtonMod) goc.HTML {
+	mod = this.modDefaulting(mod)
+	mod.Label = label
+	mod.Kind = ButtonModKindSecondary
+	mod.Size = ButtonModSizeLg
+	mod.HtmlKind = HtmlKindSubmit
+	return this.H(mod)
+}
+
 func (this *Button) SecondaryIconSubmit(icon string, mod *ButtonMod) goc.HTML {
 	mod = this.modDefaulting(mod)
 	mod.Kind = ButtonModKindSecondary
 	mod.Size = ButtonModSizeLg
 	mod.Icon = icon
 	mod.HtmlKind = HtmlKindSubmit
+	return this.H(mod)
+}
+
+func (this *Button) SecondaryIconPost(icon string, link string, mod *ButtonMod) goc.HTML {
+	mod = this.modDefaulting(mod)
+
+	mod.Link = link
+	mod.Icon = icon
+	mod.Kind = ButtonModKindSecondary
+	mod.Size = ButtonModSizeLg
+	mod.HtmlKind = HtmlKindSubmit
+	mod.Post = true
+
 	return this.H(mod)
 }
 
@@ -160,6 +182,51 @@ func (this *Button) PrimarySubmit(label string, mod *ButtonMod) goc.HTML {
 		Size:     ButtonModSizeLg,
 		HtmlKind: HtmlKindSubmit,
 	})
+}
+
+func (this *Button) PrimaryPost(label string, link string, mod *ButtonMod) goc.HTML {
+	mod = this.modDefaulting(mod)
+
+	mod.Label = label
+	mod.Link = link
+	mod.Kind = ButtonModKindPrimary
+	mod.Size = ButtonModSizeLg
+	mod.HtmlKind = HtmlKindSubmit
+	mod.Post = true
+
+	return this.H(mod)
+}
+
+func (this *Button) PrimaryIconLink(icon string, link string, mod *ButtonMod) goc.HTML {
+	return this.H(&ButtonMod{
+		Kind:     ButtonModKindPrimary,
+		Size:     ButtonModSizeLg,
+		Link:     link,
+		Icon:     icon,
+		HtmlKind: HtmlKindA,
+	})
+}
+
+func (this *Button) PrimaryIconSubmit(icon string, mod *ButtonMod) goc.HTML {
+	return this.H(&ButtonMod{
+		Kind:     ButtonModKindPrimary,
+		Size:     ButtonModSizeLg,
+		Icon:     icon,
+		HtmlKind: HtmlKindSubmit,
+	})
+}
+
+func (this *Button) PrimaryIconPost(icon string, link string, mod *ButtonMod) goc.HTML {
+	mod = this.modDefaulting(mod)
+
+	mod.Link = link
+	mod.Icon = icon
+	mod.Kind = ButtonModKindPrimary
+	mod.Size = ButtonModSizeLg
+	mod.HtmlKind = HtmlKindSubmit
+	mod.Post = true
+
+	return this.H(mod)
 }
 
 func (this *Button) SecondaryPost(label string, link string, mod *ButtonMod) goc.HTML {

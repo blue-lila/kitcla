@@ -12,7 +12,7 @@ func TestPopoverGhostlyIconPopover(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Molecules.Popovers.Popover
 
-	h := component.GhostlyIconPopover("", placeholder.GocHtmlValue())
+	h := component.GhostlyIconPopover("circle-question", placeholder.GocHtmlValue())
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/popover_ghostly_icon_popover_1.html")
@@ -23,7 +23,7 @@ func TestPopoverIconPopover(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Molecules.Popovers.Popover
 
-	h := component.IconPopover("", placeholder.GocHtmlValue())
+	h := component.IconPopover("info", placeholder.GocHtmlValue())
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/popover_icon_popover_1.html")
@@ -34,7 +34,7 @@ func TestPopoverIconPopoverWithFixedWidth(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Molecules.Popovers.Popover
 
-	h := component.IconPopoverWithFixedWidth("", placeholder.GocHtmlValue(), "")
+	h := component.IconPopoverWithFixedWidth("leaf", placeholder.GocHtmlValue(), "w-64")
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/popover_icon_popover_with_fixed_width_1.html")
@@ -56,7 +56,7 @@ func TestPopoverTextPopover(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Molecules.Popovers.Popover
 
-	h := component.TextPopover("", placeholder.GocHtmlValue())
+	h := component.TextPopover("Care Tips", placeholder.GocHtmlValue())
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/popover_text_popover_1.html")

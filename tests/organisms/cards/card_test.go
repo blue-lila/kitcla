@@ -66,7 +66,7 @@ func TestCardSimpleCard(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Organisms.Cards.Card
 
-	h := component.SimpleCard("", placeholder.CardContent())
+	h := component.SimpleCard("Plant Care Guide", placeholder.CardContent())
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/card_simple_card_1.html")
@@ -95,7 +95,7 @@ func TestCardSimpleCardWithStatus(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Organisms.Cards.Card
 
-	h := component.SimpleCardWithStatus("", placeholder.CardContent(), cards.StatusSuccess)
+	h := component.SimpleCardWithStatus("Garden Health Report", placeholder.CardContent(), cards.StatusSuccess)
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/card_simple_card_with_status_1.html")

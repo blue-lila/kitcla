@@ -1,0 +1,371 @@
+<div class='space-y-8 p-6'>
+  <h1 class='text-3xl font-bold text-gray-900 mb-8'>Table Components Overview</h1>
+  <div class='prose max-w-none mb-8'>
+    <p class='text-lg text-gray-600'>Table components organize and display structured data in rows and columns with sorting, filtering, pagination, and action capabilities. They provide efficient data browsing, comparison, and management for large datasets with responsive design and accessibility features.</p>
+  </div>
+
+  <div class='space-y-6'>
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Basic Data Tables</h2>
+      <div class='bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden'>
+        <div class='px-6 py-4 border-b border-gray-200 bg-gray-50'>
+          <div class='flex items-center justify-between'>
+            <h3 class='text-lg font-semibold text-gray-900'>User Management</h3>
+            <div class='flex items-center space-x-2'>
+              <div class='relative'>
+                <input type='text' class='pl-8 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm' placeholder='Search users...'>
+                <svg class='absolute left-2 top-2.5 h-4 w-4 text-gray-400' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fill-rule='evenodd' d='M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z' clip-rule='evenodd' />
+                </svg>
+              </div>
+              <button class='px-3 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700'>Add User</button>
+            </div>
+          </div>
+        </div>
+        <div class='overflow-x-auto'>
+          <table class='min-w-full divide-y divide-gray-200'>
+            <thead class='bg-gray-50'>
+              <tr>
+                <th class='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                  <div class='flex items-center space-x-1'>
+                    <span>Name</span>
+                    <svg class='w-4 h-4' fill='currentColor' viewBox='0 0 20 20'>
+                      <path d='M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h7a1 1 0 100-2H3zM3 11a1 1 0 100 2h4a1 1 0 100-2H3z' />
+                    </svg>
+                  </div>
+                </th>
+                <th class='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>Email</th>
+                <th class='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>Role</th>
+                <th class='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>Status</th>
+                <th class='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                  <div class='flex items-center space-x-1'>
+                    <span>Last Active</span>
+                    <svg class='w-4 h-4' fill='currentColor' viewBox='0 0 20 20'>
+                      <path d='M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h5a1 1 0 100-2H3zM6 11a1 1 0 100 2h8a1 1 0 100-2H6z' />
+                    </svg>
+                  </div>
+                </th>
+                <th class='px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider'>Actions</th>
+              </tr>
+            </thead>
+            <tbody class='bg-white divide-y divide-gray-200'>
+              <tr class='hover:bg-gray-50'>
+                <td class='px-6 py-4 whitespace-nowrap'>
+                  <div class='flex items-center'>
+                    <div class='w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center mr-4'>
+                      <span class='text-sm font-medium text-gray-700'>JS</span>
+                    </div>
+                    <div>
+                      <div class='text-sm font-medium text-gray-900'>John Smith</div>
+                      <div class='text-sm text-gray-500'>ID: 12345</div>
+                    </div>
+                  </div>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900'>john.smith@example.com</td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900'>Administrator</td>
+                <td class='px-6 py-4 whitespace-nowrap'>
+                  <span class='px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800'>Active</span>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>2 hours ago</td>
+                <td class='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
+                  <button class='text-indigo-600 hover:text-indigo-900 mr-3'>Edit</button>
+                  <button class='text-red-600 hover:text-red-900'>Delete</button>
+                </td>
+              </tr>
+              <tr class='hover:bg-gray-50'>
+                <td class='px-6 py-4 whitespace-nowrap'>
+                  <div class='flex items-center'>
+                    <div class='w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center mr-4'>
+                      <span class='text-sm font-medium text-gray-700'>AS</span>
+                    </div>
+                    <div>
+                      <div class='text-sm font-medium text-gray-900'>Alice Smith</div>
+                      <div class='text-sm text-gray-500'>ID: 12346</div>
+                    </div>
+                  </div>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900'>alice.smith@example.com</td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900'>Editor</td>
+                <td class='px-6 py-4 whitespace-nowrap'>
+                  <span class='px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800'>Active</span>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>1 day ago</td>
+                <td class='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
+                  <button class='text-indigo-600 hover:text-indigo-900 mr-3'>Edit</button>
+                  <button class='text-red-600 hover:text-red-900'>Delete</button>
+                </td>
+              </tr>
+              <tr class='hover:bg-gray-50'>
+                <td class='px-6 py-4 whitespace-nowrap'>
+                  <div class='flex items-center'>
+                    <div class='w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center mr-4'>
+                      <span class='text-sm font-medium text-gray-700'>BW</span>
+                    </div>
+                    <div>
+                      <div class='text-sm font-medium text-gray-900'>Bob Wilson</div>
+                      <div class='text-sm text-gray-500'>ID: 12347</div>
+                    </div>
+                  </div>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900'>bob.wilson@example.com</td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900'>Viewer</td>
+                <td class='px-6 py-4 whitespace-nowrap'>
+                  <span class='px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800'>Pending</span>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>3 days ago</td>
+                <td class='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
+                  <button class='text-indigo-600 hover:text-indigo-900 mr-3'>Edit</button>
+                  <button class='text-red-600 hover:text-red-900'>Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class='bg-gray-50 px-6 py-3 border-t border-gray-200'>
+          <div class='flex items-center justify-between'>
+            <div class='text-sm text-gray-700'>
+              Showing <strong>1</strong> to <strong>3</strong> of <strong>47</strong> results
+            </div>
+            <div class='flex items-center space-x-2'>
+              <button class='px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-100 disabled:opacity-50' disabled>Previous</button>
+              <button class='px-3 py-1 text-sm bg-blue-600 text-white rounded-md'>1</button>
+              <button class='px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-100'>2</button>
+              <button class='px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-100'>3</button>
+              <button class='px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-100'>Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Key-Value Tables</h2>
+      <div class='grid grid-cols-1 lg:grid-cols-2 gap-6'>
+        <div class='bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden'>
+          <div class='px-6 py-4 border-b border-gray-200 bg-gray-50'>
+            <h3 class='text-lg font-semibold text-gray-900'>User Details</h3>
+          </div>
+          <div class='divide-y divide-gray-200'>
+            <div class='px-6 py-4 flex justify-between'>
+              <span class='text-sm font-medium text-gray-500'>Full Name</span>
+              <span class='text-sm text-gray-900'>John Smith</span>
+            </div>
+            <div class='px-6 py-4 flex justify-between'>
+              <span class='text-sm font-medium text-gray-500'>Email Address</span>
+              <span class='text-sm text-gray-900'>john.smith@company.com</span>
+            </div>
+            <div class='px-6 py-4 flex justify-between'>
+              <span class='text-sm font-medium text-gray-500'>Phone Number</span>
+              <span class='text-sm text-gray-900'>+1 (555) 123-4567</span>
+            </div>
+            <div class='px-6 py-4 flex justify-between'>
+              <span class='text-sm font-medium text-gray-500'>Department</span>
+              <span class='text-sm text-gray-900'>Engineering</span>
+            </div>
+            <div class='px-6 py-4 flex justify-between'>
+              <span class='text-sm font-medium text-gray-500'>Join Date</span>
+              <span class='text-sm text-gray-900'>March 15, 2024</span>
+            </div>
+            <div class='px-6 py-4 flex justify-between'>
+              <span class='text-sm font-medium text-gray-500'>Status</span>
+              <span class='px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800'>Active</span>
+            </div>
+          </div>
+        </div>
+
+        <div class='bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden'>
+          <div class='px-6 py-4 border-b border-gray-200 bg-gray-50'>
+            <h3 class='text-lg font-semibold text-gray-900'>System Configuration</h3>
+          </div>
+          <div class='divide-y divide-gray-200'>
+            <div class='px-6 py-4 flex justify-between items-center'>
+              <span class='text-sm font-medium text-gray-500'>Database Connection</span>
+              <div class='flex items-center'>
+                <div class='w-2 h-2 bg-green-400 rounded-full mr-2'></div>
+                <span class='text-sm text-gray-900'>Connected</span>
+              </div>
+            </div>
+            <div class='px-6 py-4 flex justify-between'>
+              <span class='text-sm font-medium text-gray-500'>Server Uptime</span>
+              <span class='text-sm text-gray-900'>15 days, 3 hours</span>
+            </div>
+            <div class='px-6 py-4 flex justify-between'>
+              <span class='text-sm font-medium text-gray-500'>Memory Usage</span>
+              <span class='text-sm text-gray-900'>68% (2.1GB / 3.0GB)</span>
+            </div>
+            <div class='px-6 py-4 flex justify-between'>
+              <span class='text-sm font-medium text-gray-500'>CPU Usage</span>
+              <span class='text-sm text-gray-900'>42%</span>
+            </div>
+            <div class='px-6 py-4 flex justify-between'>
+              <span class='text-sm font-medium text-gray-500'>Last Backup</span>
+              <span class='text-sm text-gray-900'>2 hours ago</span>
+            </div>
+            <div class='px-6 py-4 flex justify-between'>
+              <span class='text-sm font-medium text-gray-500'>Version</span>
+              <span class='text-sm text-gray-900'>v2.4.1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Advanced Data Tables</h2>
+      <div class='bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden'>
+        <div class='px-6 py-4 border-b border-gray-200 bg-gray-50'>
+          <div class='flex items-center justify-between'>
+            <h3 class='text-lg font-semibold text-gray-900'>Sales Report</h3>
+            <div class='flex items-center space-x-3'>
+              <select class='text-sm border border-gray-300 rounded-md px-3 py-2'>
+                <option>All Regions</option>
+                <option>North America</option>
+                <option>Europe</option>
+                <option>Asia Pacific</option>
+              </select>
+              <select class='text-sm border border-gray-300 rounded-md px-3 py-2'>
+                <option>Last 30 days</option>
+                <option>Last 90 days</option>
+                <option>This Year</option>
+              </select>
+              <button class='px-3 py-2 bg-green-600 text-white text-sm rounded-md hover:bg-green-700'>Export</button>
+            </div>
+          </div>
+        </div>
+        <div class='overflow-x-auto'>
+          <table class='min-w-full divide-y divide-gray-200'>
+            <thead class='bg-gray-50'>
+              <tr>
+                <th class='px-6 py-3 text-left'>
+                  <input type='checkbox' class='rounded border-gray-300 text-blue-600 focus:ring-blue-500'>
+                </th>
+                <th class='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>Product</th>
+                <th class='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>Region</th>
+                <th class='px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider'>Units Sold</th>
+                <th class='px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider'>Revenue</th>
+                <th class='px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider'>Growth</th>
+                <th class='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>Trend</th>
+                <th class='px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider'>Actions</th>
+              </tr>
+            </thead>
+            <tbody class='bg-white divide-y divide-gray-200'>
+              <tr class='hover:bg-gray-50'>
+                <td class='px-6 py-4'>
+                  <input type='checkbox' class='rounded border-gray-300 text-blue-600 focus:ring-blue-500'>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap'>
+                  <div class='flex items-center'>
+                    <div class='w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4'>
+                      <svg class='w-5 h-5 text-blue-600' fill='currentColor' viewBox='0 0 20 20'>
+                        <path d='M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z' />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class='text-sm font-medium text-gray-900'>Premium Dashboard</div>
+                      <div class='text-sm text-gray-500'>Software</div>
+                    </div>
+                  </div>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900'>North America</td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right'>1,247</td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right font-medium'>$89,247</td>
+                <td class='px-6 py-4 whitespace-nowrap text-right'>
+                  <span class='text-sm font-medium text-green-600'>+12.5%</span>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap'>
+                  <div class='flex items-center'>
+                    <svg class='w-12 h-6 text-green-500' fill='currentColor' viewBox='0 0 48 24'>
+                      <path d='M2 20L6 16L10 18L14 12L18 14L22 8L26 10L30 6L34 8L38 4L42 6L46 2' stroke='currentColor' stroke-width='2' fill='none'/>
+                    </svg>
+                  </div>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
+                  <button class='text-indigo-600 hover:text-indigo-900'>View</button>
+                </td>
+              </tr>
+              <tr class='hover:bg-gray-50'>
+                <td class='px-6 py-4'>
+                  <input type='checkbox' class='rounded border-gray-300 text-blue-600 focus:ring-blue-500'>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap'>
+                  <div class='flex items-center'>
+                    <div class='w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-4'>
+                      <svg class='w-5 h-5 text-purple-600' fill='currentColor' viewBox='0 0 20 20'>
+                        <path d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class='text-sm font-medium text-gray-900'>Mobile App Pro</div>
+                      <div class='text-sm text-gray-500'>Mobile</div>
+                    </div>
+                  </div>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900'>Europe</td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right'>892</td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right font-medium'>$67,832</td>
+                <td class='px-6 py-4 whitespace-nowrap text-right'>
+                  <span class='text-sm font-medium text-red-600'>-3.2%</span>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap'>
+                  <div class='flex items-center'>
+                    <svg class='w-12 h-6 text-red-500' fill='currentColor' viewBox='0 0 48 24'>
+                      <path d='M2 8L6 12L10 10L14 16L18 14L22 20L26 18L30 22L34 20L38 24L42 22L46 26' stroke='currentColor' stroke-width='2' fill='none'/>
+                    </svg>
+                  </div>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
+                  <button class='text-indigo-600 hover:text-indigo-900'>View</button>
+                </td>
+              </tr>
+              <tr class='hover:bg-gray-50'>
+                <td class='px-6 py-4'>
+                  <input type='checkbox' class='rounded border-gray-300 text-blue-600 focus:ring-blue-500'>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap'>
+                  <div class='flex items-center'>
+                    <div class='w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-4'>
+                      <svg class='w-5 h-5 text-green-600' fill='currentColor' viewBox='0 0 20 20'>
+                        <path fill-rule='evenodd' d='M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class='text-sm font-medium text-gray-900'>Analytics Suite</div>
+                      <div class='text-sm text-gray-500'>Analytics</div>
+                    </div>
+                  </div>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900'>Asia Pacific</td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right'>2,156</td>
+                <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right font-medium'>$156,842</td>
+                <td class='px-6 py-4 whitespace-nowrap text-right'>
+                  <span class='text-sm font-medium text-green-600'>+8.7%</span>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap'>
+                  <div class='flex items-center'>
+                    <svg class='w-12 h-6 text-green-500' fill='currentColor' viewBox='0 0 48 24'>
+                      <path d='M2 22L6 18L10 20L14 14L18 16L22 10L26 12L30 8L34 10L38 6L42 8L46 4' stroke='currentColor' stroke-width='2' fill='none'/>
+                    </svg>
+                  </div>
+                </td>
+                <td class='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
+                  <button class='text-indigo-600 hover:text-indigo-900'>View</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class='bg-gray-50 px-6 py-3 border-t border-gray-200'>
+          <div class='flex items-center justify-between'>
+            <div class='flex items-center space-x-2'>
+              <span class='text-sm text-gray-700'>2 of 3 items selected</span>
+              <button class='px-2 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700'>Bulk Actions</button>
+            </div>
+            <div class='text-sm text-gray-700'>
+              Total Revenue: <strong class='text-gray-900'>$313,921</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

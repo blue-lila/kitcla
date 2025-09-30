@@ -1,0 +1,228 @@
+<div class='space-y-8 p-6'>
+  <h1 class='text-3xl font-bold text-gray-900 mb-8'>Duo Cards Components Overview</h1>
+  <div class='prose max-w-none mb-8'>
+    <p class='text-lg text-gray-600'>Duo Cards are specialized card components that display content in a split or paired layout, allowing for comparative viewing or side-by-side information presentation. They support peek functionality for quick content preview without full navigation.</p>
+  </div>
+
+  <div class='space-y-6'>
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Peek Duo Cards</h2>
+      <div class='bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden'>
+        <div class='grid grid-cols-1 md:grid-cols-2 divide-x divide-gray-200'>
+          <div class='p-6'>
+            <div class='flex items-start justify-between mb-4'>
+              <div>
+                <h3 class='text-lg font-semibold text-gray-900 mb-2'>Current Selection</h3>
+                <p class='text-sm text-gray-600'>Active item details</p>
+              </div>
+              <button class='text-gray-400 hover:text-gray-600'>
+                <svg class='w-5 h-5' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fill-rule='evenodd' d='M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z' clip-rule='evenodd' />
+                </svg>
+              </button>
+            </div>
+            <div class='space-y-3'>
+              <div class='flex items-center'>
+                <div class='w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4'>
+                  <svg class='w-6 h-6 text-blue-600' fill='currentColor' viewBox='0 0 20 20'>
+                    <path d='M9 2a1 1 0 000 2h2a1 1 0 100-2H9z' />
+                    <path fill-rule='evenodd' d='M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z' clip-rule='evenodd' />
+                  </svg>
+                </div>
+                <div class='flex-1'>
+                  <div class='text-sm font-medium text-gray-900'>Garden Plan #47</div>
+                  <div class='text-xs text-gray-500'>Last modified: 2 hours ago</div>
+                </div>
+              </div>
+              <div class='border-t border-gray-200 pt-3'>
+                <div class='grid grid-cols-2 gap-3 text-sm'>
+                  <div>
+                    <span class='text-gray-500'>Status:</span>
+                    <span class='ml-2 text-gray-900 font-medium'>Active</span>
+                  </div>
+                  <div>
+                    <span class='text-gray-500'>Progress:</span>
+                    <span class='ml-2 text-gray-900 font-medium'>75%</span>
+                  </div>
+                  <div>
+                    <span class='text-gray-500'>Start Date:</span>
+                    <span class='ml-2 text-gray-900 font-medium'>Mar 1</span>
+                  </div>
+                  <div>
+                    <span class='text-gray-500'>Due Date:</span>
+                    <span class='ml-2 text-gray-900 font-medium'>Apr 15</span>
+                  </div>
+                </div>
+              </div>
+              <div class='border-t border-gray-200 pt-3'>
+                <p class='text-sm text-gray-700'>Comprehensive spring garden layout including vegetable beds, herb spiral, and pollinator garden zones.</p>
+              </div>
+            </div>
+          </div>
+          <div class='p-6 bg-gray-50'>
+            <div class='flex items-start justify-between mb-4'>
+              <div>
+                <h3 class='text-lg font-semibold text-gray-900 mb-2'>Quick Preview</h3>
+                <p class='text-sm text-gray-600'>Related information</p>
+              </div>
+              <button class='text-blue-600 hover:text-blue-700 text-sm font-medium'>View Full</button>
+            </div>
+            <div class='space-y-3'>
+              <div class='bg-white rounded-lg border border-gray-200 p-3'>
+                <div class='flex items-center mb-2'>
+                  <div class='w-8 h-8 bg-green-100 rounded flex items-center justify-center mr-3'>
+                    <svg class='w-4 h-4 text-green-600' fill='currentColor' viewBox='0 0 20 20'>
+                      <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' />
+                    </svg>
+                  </div>
+                  <div class='flex-1'>
+                    <div class='text-sm font-medium text-gray-900'>Tasks Completed</div>
+                    <div class='text-xs text-gray-500'>15 of 20 tasks</div>
+                  </div>
+                </div>
+                <div class='w-full bg-gray-200 rounded-full h-2'>
+                  <div class='bg-green-500 h-2 rounded-full' style='width: 75%'></div>
+                </div>
+              </div>
+              <div class='bg-white rounded-lg border border-gray-200 p-3'>
+                <div class='text-sm font-medium text-gray-900 mb-2'>Recent Activity</div>
+                <div class='space-y-2'>
+                  <div class='flex items-start text-xs'>
+                    <div class='w-1.5 h-1.5 bg-blue-500 rounded-full mt-1.5 mr-2'></div>
+                    <div class='flex-1'>
+                      <span class='text-gray-700'>Soil preparation completed</span>
+                      <span class='text-gray-500 ml-1'>1h ago</span>
+                    </div>
+                  </div>
+                  <div class='flex items-start text-xs'>
+                    <div class='w-1.5 h-1.5 bg-green-500 rounded-full mt-1.5 mr-2'></div>
+                    <div class='flex-1'>
+                      <span class='text-gray-700'>Seeds ordered</span>
+                      <span class='text-gray-500 ml-1'>3h ago</span>
+                    </div>
+                  </div>
+                  <div class='flex items-start text-xs'>
+                    <div class='w-1.5 h-1.5 bg-purple-500 rounded-full mt-1.5 mr-2'></div>
+                    <div class='flex-1'>
+                      <span class='text-gray-700'>Layout updated</span>
+                      <span class='text-gray-500 ml-1'>5h ago</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='bg-white rounded-lg border border-gray-200 p-3'>
+                <div class='text-sm font-medium text-gray-900 mb-2'>Assigned Team</div>
+                <div class='flex -space-x-2'>
+                  <div class='w-8 h-8 bg-blue-500 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-medium'>JD</div>
+                  <div class='w-8 h-8 bg-green-500 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-medium'>AS</div>
+                  <div class='w-8 h-8 bg-purple-500 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-medium'>BW</div>
+                  <div class='w-8 h-8 bg-gray-300 rounded-full border-2 border-white flex items-center justify-center text-gray-700 text-xs font-medium'>+2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='px-6 py-3 bg-gray-50 border-t border-gray-200 flex justify-between items-center'>
+          <div class='text-sm text-gray-600'>
+            <span class='font-medium text-gray-900'>Pro Tip:</span> Click on any section to expand details
+          </div>
+          <div class='flex space-x-2'>
+            <button class='px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-white'>Cancel</button>
+            <button class='px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700'>Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Comparison Duo Cards</h2>
+      <div class='bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden'>
+        <div class='px-6 py-4 bg-gray-50 border-b border-gray-200'>
+          <h3 class='text-lg font-semibold text-gray-900'>Compare Plans</h3>
+        </div>
+        <div class='grid grid-cols-1 md:grid-cols-2 divide-x divide-gray-200'>
+          <div class='p-6'>
+            <div class='mb-4'>
+              <div class='flex items-center justify-between'>
+                <h4 class='text-base font-semibold text-gray-900'>Plan A: Organic Focus</h4>
+                <span class='px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full'>Recommended</span>
+              </div>
+            </div>
+            <div class='space-y-3'>
+              <div class='flex items-start'>
+                <svg class='w-5 h-5 text-green-500 mr-3 mt-0.5' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' />
+                </svg>
+                <div class='flex-1'>
+                  <div class='text-sm font-medium text-gray-900'>100% organic methods</div>
+                  <div class='text-xs text-gray-500'>No synthetic fertilizers or pesticides</div>
+                </div>
+              </div>
+              <div class='flex items-start'>
+                <svg class='w-5 h-5 text-green-500 mr-3 mt-0.5' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' />
+                </svg>
+                <div class='flex-1'>
+                  <div class='text-sm font-medium text-gray-900'>Companion planting</div>
+                  <div class='text-xs text-gray-500'>Natural pest control</div>
+                </div>
+              </div>
+              <div class='flex items-start'>
+                <svg class='w-5 h-5 text-green-500 mr-3 mt-0.5' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' />
+                </svg>
+                <div class='flex-1'>
+                  <div class='text-sm font-medium text-gray-900'>Heirloom varieties</div>
+                  <div class='text-xs text-gray-500'>Superior flavor and biodiversity</div>
+                </div>
+              </div>
+              <div class='border-t border-gray-200 pt-3 mt-3'>
+                <div class='text-2xl font-bold text-gray-900'>$450<span class='text-sm font-normal text-gray-500'>/season</span></div>
+              </div>
+            </div>
+          </div>
+          <div class='p-6'>
+            <div class='mb-4'>
+              <div class='flex items-center justify-between'>
+                <h4 class='text-base font-semibold text-gray-900'>Plan B: High Yield</h4>
+                <span class='px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full'>Popular</span>
+              </div>
+            </div>
+            <div class='space-y-3'>
+              <div class='flex items-start'>
+                <svg class='w-5 h-5 text-blue-500 mr-3 mt-0.5' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' />
+                </svg>
+                <div class='flex-1'>
+                  <div class='text-sm font-medium text-gray-900'>High-yield hybrids</div>
+                  <div class='text-xs text-gray-500'>Maximum production per square foot</div>
+                </div>
+              </div>
+              <div class='flex items-start'>
+                <svg class='w-5 h-5 text-blue-500 mr-3 mt-0.5' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' />
+                </svg>
+                <div class='flex-1'>
+                  <div class='text-sm font-medium text-gray-900'>Intensive planting</div>
+                  <div class='text-xs text-gray-500'>Maximize garden space</div>
+                </div>
+              </div>
+              <div class='flex items-start'>
+                <svg class='w-5 h-5 text-blue-500 mr-3 mt-0.5' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' />
+                </svg>
+                <div class='flex-1'>
+                  <div class='text-sm font-medium text-gray-900'>Drip irrigation</div>
+                  <div class='text-xs text-gray-500'>Efficient water delivery</div>
+                </div>
+              </div>
+              <div class='border-t border-gray-200 pt-3 mt-3'>
+                <div class='text-2xl font-bold text-gray-900'>$380<span class='text-sm font-normal text-gray-500'>/season</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,7 +22,7 @@ func TestRichTextInputRichTextInput(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Atoms.Inputs.RichTextInput
 
-	h := component.RichTextInput("", "")
+	h := component.RichTextInput("care_notes", "<p>Water twice weekly, partial shade preferred.</p>")
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/rich_text_input_rich_text_input_1.html")

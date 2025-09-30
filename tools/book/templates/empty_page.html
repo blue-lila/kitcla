@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Welcome</title>
+<link href="/static/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 py-12">
+<div class="max-w-6xl mx-auto px-6">
+	<div class="text-center mb-12">
+		<svg class="mx-auto h-16 w-16 mb-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+		</svg>
+		<h1 class="text-4xl font-bold text-gray-900 mb-4">Welcome to KitCLA Book</h1>
+		<p class="text-xl text-gray-600">Explore component overviews or browse the sidebar for individual components</p>
+	</div>
+
+	{{if .IndexPages}}
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+		{{range .IndexPages}}
+		{{$pagePath := .HtmlFilePath | stripPrefix "/docs/pages/" | stripSuffix ".html"}}
+		<a href="/?page={{$pagePath}}" class="block p-8 bg-white rounded-lg border-2 border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-200">
+			<div class="flex items-center mb-4">
+				<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+					<svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+					</svg>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold text-gray-900">{{.Kind | capitalize}}</h3>
+				</div>
+			</div>
+			<p class="text-sm text-gray-600">View comprehensive overview of all {{.Kind | toLower}} components</p>
+		</a>
+		{{end}}
+	</div>
+	{{end}}
+
+	<div class="text-center mt-12">
+		<p class="text-sm text-gray-500">Select a component from the sidebar to view individual examples</p>
+	</div>
+</div>
+</body>
+</html>

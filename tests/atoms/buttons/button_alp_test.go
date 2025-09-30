@@ -7,23 +7,23 @@ import (
 	"testing"
 )
 
-func TestButtonAlpGhostlyTertiaryIconLink(t *testing.T) {
+func TestButtonAlpQuaternaryIconLink(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Atoms.Buttons.ButtonAlp
 
-	h := component.GhostlyTertiaryIconLink("", "", nil)
+	h := component.QuaternaryIconLink("leaf", "view_plant_details()", nil)
 	html := goc.RenderRoot(h)
 
-	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_alp_ghostly_tertiary_icon_link_1.html")
-	sup.AssertEqualHtmlFromDataFile(t, html, "./data/button_alp_ghostly_tertiary_icon_link_1.html")
-	sup.AddPage("GhostlyTertiaryIconLink", html)
+	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_alp_quaternary_icon_link_1.html")
+	sup.AssertEqualHtmlFromDataFile(t, html, "./data/button_alp_quaternary_icon_link_1.html")
+	sup.AddPage("QuaternaryIconLink", html)
 }
 
 func TestButtonAlpPrimaryLink(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Atoms.Buttons.ButtonAlp
 
-	h := component.PrimaryLink("", "", nil)
+	h := component.PrimaryLink("Add to Garden", "add_plant_to_garden()", nil)
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_alp_primary_link_1.html")
@@ -35,7 +35,7 @@ func TestButtonAlpSecondaryIconLink(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Atoms.Buttons.ButtonAlp
 
-	h := component.SecondaryIconLink("", "", nil)
+	h := component.SecondaryIconLink("droplet", "schedule_watering()", nil)
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_alp_secondary_icon_link_1.html")
@@ -47,7 +47,7 @@ func TestButtonAlpSecondaryLink(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Atoms.Buttons.ButtonAlp
 
-	h := component.SecondaryLink("", "", nil)
+	h := component.SecondaryLink("Care Guide", "view_care_instructions()", nil)
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_alp_secondary_link_1.html")
@@ -59,7 +59,7 @@ func TestButtonAlpTertiaryIconLink(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Atoms.Buttons.ButtonAlp
 
-	h := component.TertiaryIconLink("", "", nil)
+	h := component.TertiaryIconLink("sun", "set_sunlight_schedule()", nil)
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/button_alp_tertiary_icon_link_1.html")

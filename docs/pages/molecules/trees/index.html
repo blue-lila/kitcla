@@ -1,0 +1,272 @@
+<div class='space-y-8 p-6'>
+  <h1 class='text-3xl font-bold text-gray-900 mb-8'>Tree Components Overview</h1>
+  <div class='prose max-w-none mb-8'>
+    <p class='text-lg text-gray-600'>Tree components display hierarchical data in an expandable and collapsible structure. They're perfect for navigation menus, file explorers, and organizational charts.</p>
+  </div>
+
+  <div class='space-y-6'>
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Basic Tree Navigation</h2>
+      <div class='space-y-3'>
+        <div class='bg-white border border-gray-200 rounded-lg p-4'>
+          <div class='space-y-2'>
+            <div class='flex items-center space-x-2'>
+              <button class='p-1'>
+                <svg class='w-4 h-4 text-gray-600' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7'></path>
+                </svg>
+              </button>
+              <span class='font-medium text-gray-900'>Documents</span>
+            </div>
+            <div class='ml-6 space-y-2'>
+              <div class='flex items-center space-x-2'>
+                <button class='p-1'>
+                  <svg class='w-4 h-4 text-gray-600 transform rotate-90' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                    <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7'></path>
+                  </svg>
+                </button>
+                <span class='text-gray-700'>Projects</span>
+              </div>
+              <div class='ml-6 space-y-1'>
+                <div class='flex items-center space-x-2'>
+                  <div class='w-4 h-4'></div>
+                  <span class='text-gray-600'>Project Alpha</span>
+                </div>
+                <div class='flex items-center space-x-2'>
+                  <div class='w-4 h-4'></div>
+                  <span class='text-gray-600'>Project Beta</span>
+                </div>
+                <div class='flex items-center space-x-2'>
+                  <div class='w-4 h-4'></div>
+                  <span class='text-gray-600'>Project Gamma</span>
+                </div>
+              </div>
+              <div class='flex items-center space-x-2'>
+                <button class='p-1'>
+                  <svg class='w-4 h-4 text-gray-600' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                    <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7'></path>
+                  </svg>
+                </button>
+                <span class='text-gray-700'>Templates</span>
+              </div>
+              <div class='flex items-center space-x-2'>
+                <div class='w-4 h-4'></div>
+                <span class='text-gray-600'>Personal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>File Explorer Tree</h2>
+      <div class='space-y-3'>
+        <div class='bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm'>
+          <div class='space-y-1'>
+            <div class='flex items-center space-x-2'>
+              <svg class='w-4 h-4 text-blue-600' fill='currentColor' viewBox='0 0 20 20'>
+                <path d='M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z'></path>
+              </svg>
+              <span class='font-medium'>src</span>
+            </div>
+            <div class='ml-6 space-y-1'>
+              <div class='flex items-center space-x-2'>
+                <svg class='w-4 h-4 text-blue-600' fill='currentColor' viewBox='0 0 20 20'>
+                  <path d='M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z'></path>
+                </svg>
+                <span>components</span>
+              </div>
+              <div class='ml-6 space-y-1'>
+                <div class='flex items-center space-x-2'>
+                  <svg class='w-4 h-4 text-gray-500' fill='currentColor' viewBox='0 0 20 20'>
+                    <path fill-rule='evenodd' d='M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z' clip-rule='evenodd'></path>
+                  </svg>
+                  <span>Button.tsx</span>
+                </div>
+                <div class='flex items-center space-x-2'>
+                  <svg class='w-4 h-4 text-gray-500' fill='currentColor' viewBox='0 0 20 20'>
+                    <path fill-rule='evenodd' d='M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z' clip-rule='evenodd'></path>
+                  </svg>
+                  <span>Input.tsx</span>
+                </div>
+                <div class='flex items-center space-x-2'>
+                  <svg class='w-4 h-4 text-gray-500' fill='currentColor' viewBox='0 0 20 20'>
+                    <path fill-rule='evenodd' d='M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z' clip-rule='evenodd'></path>
+                  </svg>
+                  <span>Modal.tsx</span>
+                </div>
+              </div>
+              <div class='flex items-center space-x-2'>
+                <svg class='w-4 h-4 text-blue-600' fill='currentColor' viewBox='0 0 20 20'>
+                  <path d='M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z'></path>
+                </svg>
+                <span>utils</span>
+              </div>
+              <div class='flex items-center space-x-2'>
+                <svg class='w-4 h-4 text-gray-500' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fill-rule='evenodd' d='M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z' clip-rule='evenodd'></path>
+                </svg>
+                <span>index.ts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Organization Chart Tree</h2>
+      <div class='space-y-3'>
+        <div class='bg-white border border-gray-200 rounded-lg p-6'>
+          <div class='space-y-4'>
+            <div class='flex items-center space-x-3'>
+              <div class='w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center'>
+                <span class='text-white font-medium text-sm'>CEO</span>
+              </div>
+              <div>
+                <h3 class='font-medium text-gray-900'>Sarah Johnson</h3>
+                <p class='text-sm text-gray-500'>Chief Executive Officer</p>
+              </div>
+            </div>
+            <div class='ml-6 space-y-3'>
+              <div class='flex items-center space-x-3'>
+                <div class='w-8 h-8 bg-green-600 rounded-full flex items-center justify-center'>
+                  <span class='text-white font-medium text-xs'>CTO</span>
+                </div>
+                <div>
+                  <h4 class='font-medium text-gray-900'>Mike Chen</h4>
+                  <p class='text-sm text-gray-500'>Chief Technology Officer</p>
+                </div>
+              </div>
+              <div class='ml-10 space-y-2'>
+                <div class='flex items-center space-x-2'>
+                  <div class='w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center'>
+                    <span class='text-white font-medium text-xs'>D</span>
+                  </div>
+                  <span class='text-sm text-gray-700'>Development Team</span>
+                </div>
+                <div class='flex items-center space-x-2'>
+                  <div class='w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center'>
+                    <span class='text-white font-medium text-xs'>Q</span>
+                  </div>
+                  <span class='text-sm text-gray-700'>QA Team</span>
+                </div>
+              </div>
+              <div class='flex items-center space-x-3'>
+                <div class='w-8 h-8 bg-red-600 rounded-full flex items-center justify-center'>
+                  <span class='text-white font-medium text-xs'>CFO</span>
+                </div>
+                <div>
+                  <h4 class='font-medium text-gray-900'>Lisa Wong</h4>
+                  <p class='text-sm text-gray-500'>Chief Financial Officer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Selectable Tree</h2>
+      <div class='space-y-3'>
+        <div class='bg-white border border-gray-200 rounded-lg p-4'>
+          <div class='space-y-2'>
+            <div class='flex items-center space-x-2'>
+              <input type='checkbox' class='rounded border-gray-300 text-blue-600 focus:ring-blue-500' indeterminate>
+              <button class='p-1'>
+                <svg class='w-4 h-4 text-gray-600 transform rotate-90' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7'></path>
+                </svg>
+              </button>
+              <span class='font-medium text-gray-900'>All Categories</span>
+            </div>
+            <div class='ml-8 space-y-2'>
+              <div class='flex items-center space-x-2'>
+                <input type='checkbox' class='rounded border-gray-300 text-blue-600 focus:ring-blue-500' checked>
+                <span class='text-gray-700'>Electronics</span>
+              </div>
+              <div class='flex items-center space-x-2'>
+                <input type='checkbox' class='rounded border-gray-300 text-blue-600 focus:ring-blue-500' checked>
+                <span class='text-gray-700'>Clothing</span>
+              </div>
+              <div class='flex items-center space-x-2'>
+                <input type='checkbox' class='rounded border-gray-300 text-blue-600 focus:ring-blue-500'>
+                <button class='p-1'>
+                  <svg class='w-4 h-4 text-gray-600' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                    <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7'></path>
+                  </svg>
+                </button>
+                <span class='text-gray-700'>Home & Garden</span>
+              </div>
+              <div class='flex items-center space-x-2'>
+                <input type='checkbox' class='rounded border-gray-300 text-blue-600 focus:ring-blue-500'>
+                <span class='text-gray-700'>Sports</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Menu Tree with Icons</h2>
+      <div class='space-y-3'>
+        <div class='bg-white border border-gray-200 rounded-lg p-4'>
+          <div class='space-y-1'>
+            <div class='flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer'>
+              <svg class='w-5 h-5 text-blue-600' fill='currentColor' viewBox='0 0 20 20'>
+                <path d='M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z'></path>
+              </svg>
+              <span class='font-medium text-gray-900'>Dashboard</span>
+            </div>
+            <div class='flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer'>
+              <button class='p-0.5'>
+                <svg class='w-4 h-4 text-gray-400 transform rotate-90' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7'></path>
+                </svg>
+              </button>
+              <svg class='w-5 h-5 text-green-600' fill='currentColor' viewBox='0 0 20 20'>
+                <path d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'></path>
+              </svg>
+              <span class='font-medium text-gray-900'>Projects</span>
+            </div>
+            <div class='ml-8 space-y-1'>
+              <div class='flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer text-sm'>
+                <svg class='w-4 h-4 text-gray-400' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fill-rule='evenodd' d='M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z' clip-rule='evenodd'></path>
+                </svg>
+                <span class='text-gray-700'>Active Projects</span>
+              </div>
+              <div class='flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer text-sm'>
+                <svg class='w-4 h-4 text-gray-400' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fill-rule='evenodd' d='M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z' clip-rule='evenodd'></path>
+                </svg>
+                <span class='text-gray-700'>Completed</span>
+              </div>
+              <div class='flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer text-sm'>
+                <svg class='w-4 h-4 text-gray-400' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fill-rule='evenodd' d='M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z' clip-rule='evenodd'></path>
+                </svg>
+                <span class='text-gray-700'>Archived</span>
+              </div>
+            </div>
+            <div class='flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer'>
+              <svg class='w-5 h-5 text-purple-600' fill='currentColor' viewBox='0 0 20 20'>
+                <path fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z' clip-rule='evenodd'></path>
+              </svg>
+              <span class='font-medium text-gray-900'>Team</span>
+            </div>
+            <div class='flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer'>
+              <svg class='w-5 h-5 text-orange-600' fill='currentColor' viewBox='0 0 20 20'>
+                <path fill-rule='evenodd' d='M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z' clip-rule='evenodd'></path>
+              </svg>
+              <span class='font-medium text-gray-900'>Settings</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,7 @@ import (
 )
 
 const basePath = "/home/<user>/go/src/kitcla/tests"
-const jsonFilePath = "/home/<user>go/src/gen-x/docs/kit/spec.json"
+const jsonFilePath = "/home/<user>/go/src/gen-x/docs/kit/spec.json"
 
 type Argument struct {
 	Name    string `json:"name"`
@@ -32,14 +32,6 @@ type Component struct {
 
 type DataStructure struct {
 	Components []Component `json:"components"`
-}
-
-func parseJSON(jsonData string) (*DataStructure, error) {
-	var parsedData DataStructure
-	if err := json.Unmarshal([]byte(jsonData), &parsedData); err != nil {
-		return nil, err
-	}
-	return &parsedData, nil
 }
 
 func generateTestFunctions(component Component) string {

@@ -11,7 +11,7 @@ func TestRichTextShowRichTextShow(t *testing.T) {
 	kit := kitcla.New()
 	component := kit.Atoms.Shows.RichTextShow
 
-	h := component.RichTextShow("", "")
+	h := component.RichTextShow("Plant Description", "<p><strong>Tomato Plant:</strong> A productive variety that thrives in <em>partial sunlight</em> with regular watering.</p>")
 	html := goc.RenderRoot(h)
 
 	sup.UpdateEqualHtmlFromDataFile(t, html, "./data/rich_text_show_rich_text_show_1.html")

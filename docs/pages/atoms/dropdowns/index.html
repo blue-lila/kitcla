@@ -1,0 +1,162 @@
+<div class='space-y-8 p-6'>
+  <h1 class='text-3xl font-bold text-gray-900 mb-8'>Dropdown Components Overview</h1>
+  <div class='prose max-w-none mb-8'>
+    <p class='text-lg text-gray-600'>Dropdown components provide collapsible menus and selection interfaces. They save space by hiding options until needed and offer intuitive ways for users to choose from lists of actions or values.</p>
+  </div>
+
+  <div class='space-y-6'>
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Action Dropdowns</h2>
+      <div class='space-y-3'>
+        <div class='relative inline-block'>
+          <button class='inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50'>
+            Actions
+            <svg class='ml-2 h-4 w-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+              <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path>
+            </svg>
+          </button>
+          <div class='absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10'>
+            <div class='py-1'>
+              <a href='#' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>Edit</a>
+              <a href='#' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>Duplicate</a>
+              <a href='#' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>Archive</a>
+              <hr class='my-1'>
+              <a href='#' class='block px-4 py-2 text-sm text-red-700 hover:bg-red-50'>Delete</a>
+            </div>
+          </div>
+        </div>
+
+        <div class='relative inline-block'>
+          <button class='inline-flex items-center px-3 py-2 border border-transparent rounded-md shadow-sm bg-blue-600 text-sm font-medium text-white hover:bg-blue-700'>
+            Create
+            <svg class='ml-2 h-4 w-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+              <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path>
+            </svg>
+          </button>
+          <div class='absolute left-0 mt-2 w-44 bg-white border border-gray-200 rounded-md shadow-lg z-10'>
+            <div class='py-1'>
+              <a href='#' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>New Document</a>
+              <a href='#' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>New Folder</a>
+              <a href='#' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>New Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Selection Dropdowns</h2>
+      <div class='space-y-3'>
+        <div class='relative inline-block w-64'>
+          <select class='block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'>
+            <option>Choose an option...</option>
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </select>
+        </div>
+
+        <div class='relative inline-block w-64'>
+          <div class='block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm text-gray-900 cursor-pointer'>
+            <div class='flex items-center justify-between'>
+              <span>Custom Select</span>
+              <svg class='h-4 w-4 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path>
+              </svg>
+            </div>
+          </div>
+          <div class='absolute w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-10'>
+            <div class='py-1 max-h-60 overflow-auto'>
+              <div class='px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 cursor-pointer'>Custom Option 1</div>
+              <div class='px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 cursor-pointer'>Custom Option 2</div>
+              <div class='px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 cursor-pointer'>Custom Option 3</div>
+              <div class='px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 cursor-pointer'>Custom Option 4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>User Dropdowns</h2>
+      <div class='space-y-3'>
+        <div class='relative inline-block'>
+          <button class='flex items-center px-3 py-2 border border-gray-300 rounded-md bg-white text-sm hover:bg-gray-50'>
+            <div class='w-6 h-6 bg-blue-500 rounded-full mr-2 flex items-center justify-center text-white text-xs font-semibold'>
+              JD
+            </div>
+            <span class='text-gray-700'>John Doe</span>
+            <svg class='ml-2 h-4 w-4 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+              <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path>
+            </svg>
+          </button>
+          <div class='absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10'>
+            <div class='py-1'>
+              <div class='px-4 py-2 border-b border-gray-100'>
+                <p class='text-sm font-medium text-gray-900'>John Doe</p>
+                <p class='text-xs text-gray-500'>john@example.com</p>
+              </div>
+              <a href='#' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>Profile</a>
+              <a href='#' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>Settings</a>
+              <a href='#' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>Help</a>
+              <hr class='my-1'>
+              <a href='#' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>Sign out</a>
+            </div>
+          </div>
+        </div>
+
+        <div class='relative inline-block'>
+          <button class='flex items-center p-2 border border-gray-300 rounded-full bg-white hover:bg-gray-50'>
+            <div class='w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-semibold'>
+              AS
+            </div>
+          </button>
+          <div class='absolute right-0 mt-2 w-44 bg-white border border-gray-200 rounded-md shadow-lg z-10'>
+            <div class='py-1'>
+              <a href='#' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>View Profile</a>
+              <a href='#' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>Account</a>
+              <hr class='my-1'>
+              <a href='#' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='space-y-4'>
+      <h2 class='text-xl font-semibold text-gray-800 mb-4'>Notification Dropdowns</h2>
+      <div class='space-y-3'>
+        <div class='relative inline-block'>
+          <button class='relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md'>
+            <svg class='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+              <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 17h5l-5 5v-5zM11 4A7 7 0 014 11a7 7 0 01.8 3.1L6 15h5l3-3V4z'></path>
+            </svg>
+            <span class='absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center'>3</span>
+          </button>
+          <div class='absolute right-0 mt-2 w-80 bg-white border border-gray-200 rounded-md shadow-lg z-10'>
+            <div class='p-4 border-b border-gray-100'>
+              <h3 class='text-sm font-semibold text-gray-900'>Notifications</h3>
+            </div>
+            <div class='max-h-64 overflow-y-auto'>
+              <div class='p-3 border-b border-gray-100 hover:bg-gray-50'>
+                <p class='text-sm font-medium text-gray-900'>New message received</p>
+                <p class='text-xs text-gray-500 mt-1'>2 minutes ago</p>
+              </div>
+              <div class='p-3 border-b border-gray-100 hover:bg-gray-50'>
+                <p class='text-sm font-medium text-gray-900'>Project updated</p>
+                <p class='text-xs text-gray-500 mt-1'>1 hour ago</p>
+              </div>
+              <div class='p-3 hover:bg-gray-50'>
+                <p class='text-sm font-medium text-gray-900'>Task completed</p>
+                <p class='text-xs text-gray-500 mt-1'>3 hours ago</p>
+              </div>
+            </div>
+            <div class='p-3 border-t border-gray-100'>
+              <a href='#' class='text-sm text-blue-600 hover:text-blue-800'>View all notifications</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,6 +12,14 @@ KitCLA is a Go-based design system kit specialized for CRUD-like applications, f
 
 ### Testing
 ```bash
+# Using the test runner script (recommended)
+./bin/run-tests.sh                                # Run all tests
+./bin/run-tests.sh -v                             # Run all tests with verbose output
+./bin/run-tests.sh -c                             # Run all tests with coverage
+./bin/run-tests.sh ./tests/atoms/...              # Run tests for specific component group
+./bin/run-tests.sh -v ./tests/atoms/buttons/...   # Run specific tests verbosely
+
+# Using go test directly
 go test ./...                                     # Run all tests
 go test ./tests/atoms/...                         # Run tests for specific component group
 go test -v ./tests/atoms/buttons/button_test.go   # Run specific test file with verbose output
@@ -84,13 +92,102 @@ go run tools/generator/main.go   # Run the component generator tool
 - **Custom JavaScript**: Common utilities and debug tools
 - **Component Files**: Modular JavaScript components
 
-### Testing Structure
+### Testing System
 
-- Tests are located in `tests/` directory, mirroring the component structure
-- Each test file includes component instantiation via `kitcla.New()`
-- Tests verify HTML output using `goc.RenderRoot()`
-- Test data files are stored in `data/` subdirectories
-- Support utilities in `sup/` for test assertions and HTML comparison
+KitCLA includes a comprehensive testing system designed for component validation, regression testing, and documentation generation. The testing architecture supports 80+ test files organized across atomic design levels.
+
+#### Test Structure and Organization
+
+**Directory Layout:**
+```
+tests/
+├── atoms/           # Basic component tests (buttons, inputs, cells, etc.)
+├── molecules/       # Simple combination tests (alerts, messages, popovers)
+├── organisms/       # Complex component tests (cards, forms, tables)
+├── widgets/         # Complete application widgets (gardening examples)
+├── components/      # Legacy component tests
+└── aria/           # Accessibility tests
+```
+
+**Data Storage Pattern:**
+- Each test directory contains a `data/` subdirectory for expected HTML output
+- Test data files use naming convention: `{component}_{variant}_{index}.html`
+- Example: `button_primary_link_1.html` stores expected HTML for primary link button
+
+#### Test Types and Patterns
+
+**1. Component Unit Tests**
+- Test individual component methods (H(), PrimaryLink(), etc.)
+- Verify HTML output against stored expected results
+- Use gardening-themed test data for realistic examples
+
+**2. Showcase Tests**
+- Generate comprehensive component overviews
+- Create documentation pages via `sup.AddIndexPage()`
+- Demonstrate multiple variations and states
+
+**3. Widget Integration Tests**
+- Test complete application scenarios (garden overview, plant management)
+- Combine multiple components into realistic user interfaces
+- Stored in `tests/widgets/gardening/` for thematic consistency
+
+#### Testing Utilities (sup/ package)
+
+**Core Functions:**
+- `UpdateEqualHtmlFromDataFile(t, html, filepath)`: Updates expected HTML output files
+- `AssertEqualHtmlFromDataFile(t, html, filepath)`: Validates HTML matches expected output
+- `AddIndexPage(name, html)`: Generates component overview documentation
+- `AddPage(name, html)`: Creates individual component example pages
+
+**Test Data Management:**
+```go
+// Standard test pattern
+h := component.PrimaryLink("Plant Seeds", "/plant", nil)
+html := goc.RenderRoot(h)
+
+// Update expected output (run when changing components)
+sup.UpdateEqualHtmlFromDataFile(t, html, "./data/primary_link_1.html")
+
+// Assert output matches expected (regression testing)
+sup.AssertEqualHtmlFromDataFile(t, html, "./data/primary_link_1.html")
+
+// Generate documentation page
+sup.AddPage("PrimaryLink", html)
+```
+
+#### Running Tests
+
+**Command Examples:**
+```bash
+go test ./tests/...                              # Run all tests (80+ files)
+go test ./tests/atoms/...                        # Test all atomic components
+go test ./tests/atoms/buttons/...                # Test button components only
+go test -v ./tests/atoms/inputs/text_input_test.go  # Verbose single test
+go test ./tests/widgets/gardening/...            # Test complete widget examples
+```
+
+**Test Categories by Count:**
+- Atomic components: ~50 test files
+- Molecular components: ~10 test files
+- Organism components: ~15 test files
+- Widget examples: ~5 test files
+
+#### Documentation Generation
+
+Tests automatically generate documentation files in `docs/pages/` structure:
+- **HTML files**: Rendered component examples for component book
+- **JSON metadata**: Component information for navigation and organization
+- **Index pages**: Overview pages showing multiple component variations
+
+#### Test Data Themes
+
+All test data uses consistent gardening application themes:
+- **Buttons**: "Plant Seeds", "Water Garden", "Harvest Crops"
+- **Inputs**: Plant varieties, watering schedules, garden locations
+- **Forms**: Plant management, care tracking, harvest logging
+- **Tables**: Plant inventories, care schedules, growth tracking
+
+This thematic consistency makes tests more readable and provides realistic usage examples.
 
 ### Code Generation
 
@@ -141,3 +238,5 @@ go run tools/generator/main.go   # Run the component generator tool
 - `sup/`: Support utilities for testing and development
 - `aria/`: ARIA accessibility support
 - `i18n/`: Internationalization files
+- Always use ./bin/run-book when trying to run the book
+- Always run tests before saying a task is completed

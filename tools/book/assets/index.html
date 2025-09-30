@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KitCLA Book</title>
+    <link href="/static/tailwind.min.css" rel="stylesheet">
+    <style>
+        .sidebar { width: 280px; min-width: 280px; }
+        .main-content { flex: 1; }
+        .nav-item { transition: all 0.2s ease; }
+        .nav-item:hover { background-color: #f9fafb; }
+        .nav-item.active { background-color: #dbeafe; border-right: 3px solid #3b82f6; }
+        .component-frame { width: 100%; height: 100%; border: 1px solid #e5e7eb; background: white; }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::marker { display: none; }
+        details[open] > summary > div > div > span:first-child { transform: rotate(90deg); }
+        details summary > div > div > span:first-child { display: inline-block; transition: transform 0.2s ease; }
+        details summary { cursor: pointer; }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::before { content: ''; margin-right: 0px; transition: transform 0.2s ease; }
+        details[open] summary::before { transform: rotate(90deg); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="sidebar bg-white border-r border-gray-200 overflow-y-auto">
+            <div class="p-4 border-b border-gray-200">
+                <a href="/" class="block hover:bg-gray-50 rounded-md p-2 -m-2 transition-colors">
+                    <h1 class="text-xl font-bold text-gray-900">KitCLA</h1>
+                    <p class="text-sm text-gray-500">Component Book</p>
+                </a>
+            </div>
+            <div class="p-2">
+                {{range $kind, $subKinds := .Menu}}
+                <details class="mb-2">
+                    <summary class="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md cursor-pointer group list-none">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="mr-2">▶</span>
+                                <span>{{$kind | capitalize}}</span>
+                            </div>
+                            <a href="?page={{$kind}}/index"
+                               onclick="event.stopPropagation();"
+                               class="opacity-0 group-hover:opacity-100 text-xs text-blue-600 hover:text-blue-800 px-2 py-1 rounded transition-opacity"
+                               title="View {{$kind}} overview">
+                                Overview
+                            </a>
+                        </div>
+                    </summary>
+                    <div class="ml-4 mt-1">
+                        {{range $subKind, $components := $subKinds}}
+                        {{$hasChildren := false}}
+                        {{range $componentName, $pages := $components}}
+                        {{if ne $componentName ""}}
+                        {{$hasChildren = true}}
+                        {{end}}
+                        {{end}}
+                        {{if $hasChildren}}
+                        <details class="mb-1">
+                            <summary class="px-3 py-1 text-sm text-gray-600 hover:bg-gray-100 rounded-md cursor-pointer group list-none">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <span class="mr-2">▶</span>
+                                        <span>{{$subKind | capitalize}}</span>
+                                    </div>
+                                    <a href="?page={{$kind}}/{{$subKind}}/index"
+                                       onclick="event.stopPropagation();"
+                                       class="opacity-0 group-hover:opacity-100 text-xs text-blue-600 hover:text-blue-800 px-2 py-1 rounded transition-opacity"
+                                       title="View {{$subKind}} overview">
+                                        Overview
+                                    </a>
+                                </div>
+                            </summary>
+                            <div class="ml-4 mt-1">
+                                {{range $componentName, $pages := $components}}
+                                {{if ne $componentName ""}}
+                                <details class="mb-1">
+                                    <summary class="px-3 py-1 text-sm text-gray-600 hover:bg-gray-100 rounded-md cursor-pointer">
+                                        {{$componentName | capitalize}}
+                                    </summary>
+                                    <div class="ml-4 mt-1">
+                                        {{range $pages}}
+                                        {{$pagePath := .HtmlFilePath | stripPrefix "/docs/pages/" | stripSuffix ".html"}}
+                                        <a href="?page={{$pagePath}}"
+                                           class="block px-6 py-1 text-xs text-gray-500 hover:bg-gray-100 rounded-md nav-item{{if eq $pagePath $.CurrentPage}} active{{end}}">
+                                            {{.Name}}
+                                        </a>
+                                        {{end}}
+                                    </div>
+                                </details>
+                                {{end}}
+                                {{end}}
+                            </div>
+                        </details>
+                        {{else}}
+                        <a href="?page={{$kind}}/{{$subKind}}/index" class="block px-3 py-1 text-sm text-gray-600 hover:bg-gray-100 rounded-md mb-1">
+                            {{$subKind | capitalize}}
+                        </a>
+                        {{end}}
+                        {{end}}
+                    </div>
+                </details>
+                {{end}}
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content flex flex-col">
+            <div class="bg-white border-b border-gray-200 p-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-lg font-semibold text-gray-900">{{.PageTitle}}</h2>
+                        <p class="text-sm text-gray-500">{{.PageBreadcrumb}}</p>
+                    </div>
+                    {{if .CurrentPage}}
+                    <div class="flex space-x-2">
+                        {{if .ShowDirectHTML}}
+                        <button onclick="window.location.href='?page={{.CurrentPage}}'"
+                                class="px-3 py-1 text-sm rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">
+                            Preview
+                        </button>
+                        <button onclick="window.open('/component/{{.CurrentPage}}/html', '_blank')"
+                                class="px-3 py-1 text-sm rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">
+                            See HTML
+                        </button>
+                        <button onclick="window.open('/component/{{.CurrentPage}}/arguments', '_blank')"
+                                class="px-3 py-1 text-sm rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">
+                            See Arguments
+                        </button>
+                        {{else}}
+                        <button onclick="document.querySelector('iframe').src='/component/{{.CurrentPage}}'"
+                                class="px-3 py-1 text-sm rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">
+                            Preview
+                        </button>
+                        <button onclick="document.querySelector('iframe').src='/component/{{.CurrentPage}}/html'"
+                                class="px-3 py-1 text-sm rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">
+                            See HTML
+                        </button>
+                        <button onclick="document.querySelector('iframe').src='/component/{{.CurrentPage}}/arguments'"
+                                class="px-3 py-1 text-sm rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">
+                            See Arguments
+                        </button>
+                        {{end}}
+
+                        <!-- Copy Dropdown -->
+                        <div class="relative">
+                            <button onclick="toggleDropdown()"
+                                    class="px-3 py-1 text-sm rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors flex items-center">
+                                Copy
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div id="copy-dropdown" class="hidden absolute right-0 mt-1 w-32 bg-white rounded-md shadow-lg border border-gray-200 z-10">
+                                <div class="py-1">
+                                    <button onclick="copyHTML('{{.CurrentPage}}')"
+                                            class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Copy HTML
+                                    </button>
+                                    <button onclick="copyTestPath('{{.CurrentPage}}')"
+                                            class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Copy test path
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+            <div class="flex-1 overflow-hidden">
+                {{if .ShowWelcome}}
+                <div class="bg-gray-50 py-12 h-full overflow-y-auto">
+                    <div class="max-w-6xl mx-auto px-6">
+                        <div class="text-center mb-12">
+                            <svg class="mx-auto h-16 w-16 mb-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                            <h1 class="text-4xl font-bold text-gray-900 mb-4">Welcome to KitCLA Book</h1>
+                            <p class="text-xl text-gray-600">Explore component overviews or browse the sidebar for individual components</p>
+                            <div class="mt-6 max-w-2xl mx-auto space-y-4">
+                                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                                    <div class="flex">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm text-yellow-700">
+                                                <strong class="font-medium">Under Construction:</strong> This book is still being developed and contains placeholder content. Some components and examples may be incomplete or use temporary data.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                                    <div class="flex">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm text-blue-700">
+                                                <strong class="font-medium">Source of Truth:</strong> Check <code class="bg-blue-100 px-1.5 py-0.5 rounded text-xs font-mono">kit.go</code> for the definitive list of all available components and their organization.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{if .IndexPages}}
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                            {{range .IndexPages}}
+                            {{$pagePath := .HtmlFilePath | stripPrefix "/docs/pages/" | stripSuffix ".html"}}
+                            <a href="/?page={{$pagePath}}" class="block p-6 bg-white rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-200">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-900">{{.Name}}</h3>
+                                        <p class="text-sm text-gray-500">{{.Kind | capitalize}} > {{.SubKind | capitalize}}</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600">View comprehensive overview of {{.SubKind | toLower}} components</p>
+                            </a>
+                            {{end}}
+                        </div>
+                        {{end}}
+
+                        <div class="text-center mt-12">
+                            <p class="text-sm text-gray-500">Select a component from the sidebar to view individual examples</p>
+                        </div>
+                    </div>
+                </div>
+                {{else if .ShowDirectHTML}}
+                <div class="bg-gray-50 py-12 h-full overflow-y-auto">
+                    <div class="max-w-6xl mx-auto px-6">
+                        {{.DirectHTML}}
+                    </div>
+                </div>
+                {{else}}
+                <iframe name="component-frame" class="component-frame" src="{{.IframeSrc}}" sandbox="allow-scripts allow-same-origin"></iframe>
+                {{end}}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('copy-dropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('copy-dropdown');
+            const dropdownButton = event.target.closest('.relative');
+
+            if (!dropdownButton && !dropdown.classList.contains('hidden')) {
+                dropdown.classList.add('hidden');
+            }
+        });
+
+        async function copyHTML(currentPage) {
+            try {
+                const response = await fetch(`/component/${currentPage}/html`);
+                const html = await response.text();
+
+                // Extract just the HTML content from the template
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const codeElement = doc.querySelector('pre code');
+                const htmlContent = codeElement ? codeElement.textContent : html;
+
+                await navigator.clipboard.writeText(htmlContent);
+                showTooltip('HTML copied to clipboard!');
+            } catch (error) {
+                console.error('Failed to copy HTML:', error);
+                showTooltip('Failed to copy HTML');
+            }
+
+            // Close dropdown
+            document.getElementById('copy-dropdown').classList.add('hidden');
+        }
+
+        async function copyTestPath(currentPage) {
+            try {
+                // Convert page path to test file path
+                // e.g., "atoms/buttons/button_alp/primary_link" -> "tests/atoms/buttons/button_alp_test.go"
+                const pathParts = currentPage.split('/');
+                const componentType = pathParts[0]; // atoms, molecules, organisms
+                const subType = pathParts[1]; // buttons, inputs, etc.
+                const componentName = pathParts[2]; // button_alp, etc.
+
+                const testPath = `tests/${componentType}/${subType}/${componentName}_test.go`;
+
+                await navigator.clipboard.writeText(testPath);
+                showTooltip('Test path copied to clipboard!');
+            } catch (error) {
+                console.error('Failed to copy test path:', error);
+                showTooltip('Failed to copy test path');
+            }
+
+            // Close dropdown
+            document.getElementById('copy-dropdown').classList.add('hidden');
+        }
+
+        function showTooltip(message) {
+            // Create temporary tooltip
+            const tooltip = document.createElement('div');
+            tooltip.textContent = message;
+            tooltip.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-md shadow-lg z-50 transition-opacity duration-300';
+            document.body.appendChild(tooltip);
+
+            // Remove tooltip after 2 seconds
+            setTimeout(() => {
+                tooltip.style.opacity = '0';
+                setTimeout(() => {
+                    if (tooltip.parentNode) {
+                        tooltip.parentNode.removeChild(tooltip);
+                    }
+                }, 300);
+            }, 2000);
+        }
+        // Auto-expand menu to show current page
+        function expandMenuForCurrentPage() {
+            const currentPage = '{{.CurrentPage}}';
+            if (!currentPage) return;
+
+            const parts = currentPage.split('/');
+
+            // Open all details elements that are ancestors of the current page
+            const allDetails = document.querySelectorAll('details');
+            allDetails.forEach(details => {
+                // Check if this details element contains the active link
+                const activeLink = details.querySelector('a.active');
+                if (activeLink) {
+                    details.open = true;
+                }
+
+                // Also check if this is a category or subcategory in the path
+                const summary = details.querySelector('summary');
+                if (summary) {
+                    const summaryText = summary.textContent.trim().toLowerCase();
+                    // Check if any part of the current path matches this summary
+                    for (let part of parts) {
+                        if (part && summaryText.includes(part.toLowerCase())) {
+                            details.open = true;
+                            break;
+                        }
+                    }
+                }
+            });
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', expandMenuForCurrentPage);
+    </script>
+</body>
+</html>
