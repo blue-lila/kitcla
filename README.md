@@ -60,15 +60,15 @@ KitCLA follows atomic design principles with three levels of components:
 
 For a complete list of all available components and their usage, see [docs/components.md](docs/components.md) or explore [kit.go](kit.go) directly.
 
-### Alpine.js Variants
+### Mirror Components (Alpine.js)
 
-Some components have Alpine.js-enhanced variants (suffixed with `Alp`) for client-side interactivity:
+Components have Alpine.js mirror variants (suffixed with `Alp`) for client-side interactivity. Same API, easy to switch:
 
 ```go
 // Standard button with server-side link
 kit.Atoms.Buttons.Button.PrimaryLink("Save", "/save", nil)
 
-// Alpine.js button with client-side click handler
+// Mirror component with client-side click handler
 kit.Atoms.Buttons.ButtonAlp.PrimaryLink("Save", "handleSave()", nil)
 ```
 
